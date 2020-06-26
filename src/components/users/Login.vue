@@ -81,6 +81,7 @@
                                     <v-row>
                                         <v-col cols="12" md="6" sm="6">
                                             <v-text-field
+                                                v-model="fname"
                                                 label="First Name"
                                                 outlined
                                                 type="text"
@@ -89,6 +90,7 @@
                                         </v-col>
                                         <v-col cols="12" md="6" sm="6">
                                             <v-text-field
+                                                v-model="lname"
                                                 label="Last Name"
                                                 outlined
                                                 type="text"
@@ -97,6 +99,7 @@
                                         </v-col>
                                             <v-col cols="12" md="12" sm="12">
                                             <v-text-field
+                                                v-model="email"
                                                 label="E-mail"
                                                 type="email"
                                                 outlined
@@ -105,6 +108,7 @@
                                         </v-col>
                                         <v-col cols="12" md="12" sm="12">
                                             <v-text-field
+                                                v-model="password"
                                                 label="Password"
                                                 type="password"
                                                 outlined
@@ -204,7 +208,11 @@ export default {
 
     data() {
         return {
-            
+            fname: "",
+            lname: "",
+            email: "",
+            phoneNumber: "",
+            password: null,
         }
     }
 }

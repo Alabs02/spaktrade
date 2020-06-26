@@ -7,6 +7,8 @@ import Traders from '../views/Traders.vue';
 import Combos from '../views/Combos.vue';
 import Login from '../components/users/Login.vue';
 import Signup from '../components/users/Signup.vue';
+import User from '../components/users/Settings.vue';
+import SubLogin from '../components/partials/SubLogin.vue';
 
 Vue.use(VueRouter)
 
@@ -45,6 +47,16 @@ Vue.use(VueRouter)
       path: '/signup',
       name: 'Signjup',
       component: Signup
+    },
+    {
+      path: '/account-details',
+      name: 'SubLogin',
+      component: SubLogin
+    },
+    {
+      path: '/user',
+      name: 'User',
+      component: User
     },
 ]
 
