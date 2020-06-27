@@ -156,12 +156,34 @@
                                                 </v-col>
                                             </v-row>
 
+                                            <h6 class="ml-2 body-2 mt-3 font-weight-medium">Receive Newsletters</h6>
+                                            <v-card-text class="caption">
+                                                Allow SpakTrade to send you newsletters and other notifications. 
+                                                Your email will not be used for any kind of third party advertisements.
+                                            </v-card-text>
+
+                                            <v-checkbox
+                                                v-model="checkbox"
+                                                :error-messages="checkboxErrors"
+                                                label="Yes, I would like to receive newsletters"
+                                                required
+                                                checked
+                                                @change="$v.checkbox.$touch()"
+                                                @blur="$v.checkbox.$touch()"
+                                            ></v-checkbox>
                                         </v-card-text>
                                     </v-col>
                                 </v-row>
-
                             </v-container>
                         </v-card-text>
+                        <v-divider class="mx-4"></v-divider>
+                        <v-card-actions>
+                            <v-container>
+                                <v-btn dark rounded color="indigo darken-3">save settings</v-btn>
+                                <v-spacer></v-spacer>
+                                <v-btn text class="grey--text">Reset Changes</v-btn>
+                            </v-container>
+                        </v-card-actions>
                     </v-card>
                 </v-container>
             </v-sheet>
