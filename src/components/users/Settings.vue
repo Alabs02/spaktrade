@@ -69,7 +69,7 @@
                         <v-container>
                             <v-row>
                                 <v-icon class="mt-1 ml-2 grey--text text--darken-3" size="30">{{ newAcctIcon }}</v-icon>
-                                <h6 class="ml-2 body-2 mt-3 font-weight-medium">Personal Details</h6>
+                                <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Personal Details</h6>
                             </v-row>
                         </v-container>
                             
@@ -87,7 +87,7 @@
                                 ></v-text-field>
                             </v-container>
                             <v-container>
-                                <h6 class="ml-2 body-2 mt-3 font-weight-medium">Full Name</h6>
+                                <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Full Name</h6>
                                 <v-card-text>
                                     This must be your real full name (first name, middle name and last name).
                                     <v-row>
@@ -122,7 +122,7 @@
 
                                 <v-row>
                                     <v-col cols="12" md="6" sm="12">
-                                        <h6 class="ml-2 body-2 mt-3 font-weight-medium">Country of Residence</h6>
+                                        <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Country of Residence</h6>
                                         <v-card-text>
                                             <span>Choose your country of residence.</span>
                                             <v-select
@@ -135,7 +135,7 @@
                                     </v-col>
 
                                     <v-col cols="12" md="6" sm="12" class="mt-n2">
-                                        <h6 class="ml-2 body-2 mt-3 font-weight-medium">Phone Number</h6>
+                                        <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Phone Number</h6>
                                         <v-card-text>
                                             <span>Enter your phone number without any leading zeros or prefixes.</span>
                                             <v-row>
@@ -155,41 +155,37 @@
                                                     ></v-text-field>
                                                 </v-col>
                                             </v-row>
-
-                                            <h6 class="ml-2 body-2 mt-3 font-weight-medium">Receive Newsletters</h6>
-                                            <v-card-text class="caption">
-                                                Allow SpakTrade to send you newsletters and other notifications. 
-                                                Your email will not be used for any kind of third party advertisements.
-                                            </v-card-text>
-
-                                            <v-checkbox
-                                                v-model="checkbox"
-                                                :error-messages="checkboxErrors"
-                                                label="Yes, I would like to receive newsletters"
-                                                required
-                                                checked
-                                                @change="$v.checkbox.$touch()"
-                                                @blur="$v.checkbox.$touch()"
-                                            ></v-checkbox>
                                         </v-card-text>
                                     </v-col>
                                 </v-row>
+                                <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Receive Newsletters</h6>
+                                <v-card-text class="caption">
+                                    Allow SpakTrade to send you newsletters and other notifications. 
+                                    Your email will not be used for any kind of third party advertisements.
+                                </v-card-text>
+
+                                <v-checkbox
+                                    v-model="checkbox"
+                                    :error-messages="checkboxErrors"
+                                    label="Yes, I would like to receive newsletters"
+                                    required
+                                    checked
+                                    @change="$v.checkbox.$touch()"
+                                    @blur="$v.checkbox.$touch()"
+                                ></v-checkbox>
                             </v-container>
                         </v-card-text>
                         <v-divider class="mx-4"></v-divider>
                         <v-card-actions>
-                            <v-container>
-                                <v-btn dark rounded color="indigo darken-3">save settings</v-btn>
-                                <v-spacer></v-spacer>
-                                <v-btn text class="grey--text">Reset Changes</v-btn>
-                            </v-container>
+                            <v-btn dark rounded color="indigo darken-3">save settings</v-btn>
+                            <v-spacer></v-spacer>
+                            <v-btn text class="grey--text">Reset Changes</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-container>
             </v-sheet>
 
         </v-main>
-
         <footer-app />
     </div>
 </template>
