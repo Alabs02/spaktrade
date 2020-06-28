@@ -39,17 +39,40 @@
 
                 <v-list>
                     <v-list-item
-                        v-for="(item, i) in featureItems"
-                        :key="i"
                         link
+                        @click="userList"
                     >
-                        <v-list-item-icon><v-icon>{{ item.icon }}</v-icon></v-list-item-icon>
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                        <v-list-item-icon><v-icon>{{ listIcon }}</v-icon></v-list-item-icon>
+                        <v-list-item-title >User Lists</v-list-item-title>
+                    </v-list-item>
+                
+                    <v-list-item
+                        link
+                        router to="/tutorials"
+                    >
+                        <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
+                        <v-list-item-title >Trading Tutorials</v-list-item-title>
+                    </v-list-item>
+
+                    <v-list-item
+                        link
+                        router to="/calendar"
+                    >
+                        <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
+                        <v-list-item-title >Calendar</v-list-item-title>
+                    </v-list-item>
+
+                    <v-list-item
+                        link
+                        @click="myForum"
+                    >
+                        <v-list-item-icon><v-icon>{{ forumIcon }}</v-icon></v-list-item-icon>
+                        <v-list-item-title >Forum</v-list-item-title>
                     </v-list-item>
                 </v-list>
 
             </v-menu>
-            <span class="caption mt-2 ml-1">me@gmail.com</span>
+            <span class="caption mt-2 ml-1">johnbon@me.com</span>
             <v-menu
              transition="scale-y-transition"
              bottom
@@ -59,17 +82,15 @@
                         <v-icon size="30" dark>{{ acctIcon }}</v-icon>
                     </v-btn>
                 </template>
-                <v-list>
+                <v-list shaped>
                     <v-list-item
-                    v-for="(item, i) in userDetails"
-                    :key="i"
-                    link
-                    @click="go"
+                        link
+                        @click="signOut"
                     >
                         <v-list-item-icon>
-                            <v-icon>{{ item.icon }}</v-icon>
+                            <v-icon>{{ accountIcon }}</v-icon>
                         </v-list-item-icon>
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                        <v-list-item-title>Sign out</v-list-item-title>
                     </v-list-item>
                 </v-list>
                 
@@ -81,19 +102,19 @@
 
 
 <script>
+import firebase from 'firebase';
 import { mdiTrademark } from '@mdi/js';
 import { mdiShopping } from '@mdi/js';
 import { mdiFeatureSearchOutline } from '@mdi/js';
-import { mdiBitcoin } from '@mdi/js';
+// import { mdiBitcoin } from '@mdi/js';
 import { mdiContactsOutline } from '@mdi/js';
 import { mdiMagnify } from '@mdi/js';
 import { mdiHomeCityOutline } from '@mdi/js';
 import { mdiFormatListBulletedTriangle } from '@mdi/js';
-import { mdiWall } from '@mdi/js';
 import { mdiCalendarOutline } from '@mdi/js';
 import { mdiForumOutline } from '@mdi/js';
-import { mdiAlphaC } from '@mdi/js';
-import { mdiChartTree } from '@mdi/js';
+import { mdiAccountBox } from '@mdi/js';
+import { mdiTeach } from '@mdi/js';
 import { mdiAccountCircleOutline } from '@mdi/js';
 import { mdiOpenInNew } from '@mdi/js';
 
@@ -113,24 +134,29 @@ export default {
             searchIcon: mdiMagnify, 
             featureSIcon: mdiFeatureSearchOutline,
             acctIcon: mdiAccountCircleOutline,
+            accountIcon: mdiAccountBox,
+            listIcon: mdiFormatListBulletedTriangle,
+            tutoIcon: mdiTeach,
+            calendarIcon: mdiCalendarOutline,
+            forumIcon: mdiForumOutline,
 
             // Js code
             barItems: [
                 { title: "Home", icon: mdiHomeCityOutline, to: "/" },
                 { title: "Traders", icon: mdiTrademark, to: "/traders/all" },
                 { title: "Combos", icon: mdiShopping, to: "/combos" },
-                { title: "Cryptos", icon: mdiBitcoin, to: "#!" },
+                // { title: "Cryptos", icon: mdiBitcoin, to: "#!" },
                 { title: "Contact Us", icon: mdiContactsOutline, to: "/contact" }
             ],
 
-            featureItems: [
-                { title: "Combos Plus", icon: mdiAlphaC,  to: '#!' },
-                { title: "Social Charts", icon: mdiChartTree, to: '#!' },
-                { title: "UserLists", icon: mdiFormatListBulletedTriangle, to: '#!' },
-                { title: "TradeWall", icon: mdiWall, to: '#!' },
-                { title: "Calender", icon: mdiCalendarOutline, to: '#!' },
-                { title: "Forum", icon: mdiForumOutline, to: '#!' },
-            ],
+            // featureItems: [
+            //     // { title: "Combos Plus", icon: mdiAlphaC,  to: '#!' },
+            //     // { title: "Social Charts", icon: mdiChartTree, to: '#!' },
+            //     { title: "UserLists", icon: mdiFormatListBulletedTriangle, to: '#!' },
+            //     // { title: "TradeWall", icon: mdiWall, to: '#!' },
+            //     { title: "Calender", icon: mdiCalendarOutline, to: '#!' },
+            //     { title: "Forum", icon: mdiForumOutline, to: '#!' },
+            // ],
 
             userDetails: [
                 { title: "Logout", icon: mdiOpenInNew, to: "/"}
@@ -139,9 +165,15 @@ export default {
     },
 
     methods: {
-        go() {
-            alert("Logout Clicked");
-        }
+        signOut() {
+            firebase.auth().signOut()
+                .then(user => {
+                    this.$router.replace('/');
+                    console.log(`${user} logout successfully!`);
+                }).catch(err => {
+                    console.error(err);
+                });
+        },
     }
 }
 </script>

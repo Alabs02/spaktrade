@@ -325,7 +325,7 @@
                                                         Check out our Android, iPhone, iPad and desktop widget apps.
                                                     </v-card-text>
                                                     <v-card-actions class="text-center">
-                                                        <v-btn dark color="pink darken-4" rounded style="text-transform: lowercase !important;">download now</v-btn>
+                                                        <v-bt @click="downloadApp" dark color="pink darken-4" rounded style="text-transform: lowercase !important;">download now</v-bt>
                                                     </v-card-actions>
                                                 </v-col>
                                             </v-row>
@@ -633,6 +633,12 @@ export default {
             ]
             
         }
+    },
+
+    methods: {
+        downloadApp() {
+            alert("Mobile not available at the moment.");
+        },
     }
 }
 </script>

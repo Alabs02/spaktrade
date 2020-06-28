@@ -12,7 +12,7 @@
                                 <v-avatar size="80" color="indigo darken-2">
                                     <v-icon dark>{{ acctIcon }}</v-icon>
                                 </v-avatar>
-                                <span class="body-2 font-weight-medium">Usman Aliyu</span>
+                                <span class="body-2 font-weight-medium">John Bon</span>
                                 <v-container>
                                     <v-tooltip bottom>
                                         <template v-slot:activator="{ on }">
@@ -33,7 +33,7 @@
                                             </v-container>
                                             
                                         </template>
-                                        <span>Usman Demo Account</span>
+                                        <span>John's Demo Account</span>
                                     </v-tooltip>
                                 </v-container>
                             </v-row>
@@ -46,7 +46,7 @@
                                 </v-col>
 
                                 <v-col cols="12" md="6" sm="12">
-                                    <v-btn rounded dark class="ml-4 mt-8 text-right indigo darken-3" style="float: right !important;">open real account</v-btn>
+                                    <v-btn router to="/trade" rounded dark class="ml-4 mt-8 text-right indigo darken-3" style="float: right !important;">Trade</v-btn>
                                 </v-col>
                             </v-row>
                         </v-col>
@@ -83,7 +83,7 @@
                                 <v-text-field
                                  outlined
                                  dense
-                                 value="me@gmail.com"
+                                 value="johnbon@me.com"
                                 ></v-text-field>
                             </v-container>
                             <v-container>
@@ -106,7 +106,7 @@
                                         </v-col>
                                         <v-col cols="12" md="3" sm="12">
                                             <v-text-field
-                                             value="Harvey"
+                                             value="Bon"
                                              outlined
                                             ></v-text-field>
                                         </v-col>
@@ -177,14 +177,13 @@
                         </v-card-text>
                         <v-divider class="mx-4"></v-divider>
                         <v-card-actions>
-                            <v-btn dark rounded color="indigo darken-3">save settings</v-btn>
+                            <v-btn @click="save" dark rounded color="indigo darken-3">save settings</v-btn>
                             <v-spacer></v-spacer>
-                            <v-btn text class="grey--text">Reset Changes</v-btn>
+                            <v-btn @click="reset" text class="grey--text">Reset Changes</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-container>
             </v-sheet>
-
         </v-main>
         <footer-app />
     </div>
@@ -192,6 +191,7 @@
 
 
 <script>
+// import firebase from 'firebase';
 import AppBarUser from '@/components/core/AppBarUser.vue';
 import Footer from '@/components/core/Footer.vue';
 import { mdiAccountCircleOutline } from "@mdi/js";
@@ -216,6 +216,18 @@ export default {
             ],
             titles: ['Mr.', 'Mrs.'],
             countries: ['Nigeria', 'South Africa'],
+
+            // Firebase
+            checkbox: null,
+        }
+    },
+
+    methods: {
+        save() {
+            alert("Details successfully saved!");
+        },
+        reset() {
+            alert("Details successfully erased!");
         }
     }
 }

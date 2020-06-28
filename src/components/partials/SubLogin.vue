@@ -38,7 +38,9 @@
                                     v-model="currency"
                                     :items="currencies"
                                     outlined
-                                    label="Currency"
+                                    label="currency"
+                                    value="USD"
+                                    disabled
                                     ></v-select>
                                 </v-col>
 
@@ -47,7 +49,9 @@
                                     <v-text-field
                                     outlined
                                     label="Amount"
+                                    value="10,000"
                                     type="number"
+                                    disabled
                                     >
                                     </v-text-field>
                                 </v-col>
@@ -57,12 +61,14 @@
                                     :items="leveis"
                                     outlined
                                     label="Leverage"
+                                    value="20:1"
+                                    disabled
                                     ></v-select>
                                 </v-col>
                             </v-row>
 
                             <v-container class="mb-12">
-                                <v-btn dark rounded color="indigo">create demo account</v-btn>
+                                <v-btn router to="/user" dark rounded color="indigo">create demo account</v-btn>
                             </v-container>
 
                         </v-container>

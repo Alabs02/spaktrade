@@ -79,45 +79,30 @@
                             <v-container>
                                 <form action="">
                                     <v-row>
-                                        <v-col cols="12" md="6" sm="6">
+                                        <v-col cols="12" md="12" sm="12">
                                             <v-text-field
-                                                v-model="fname"
-                                                label="First Name"
-                                                outlined
-                                                type="text"
-                                                required
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" md="6" sm="6">
-                                            <v-text-field
-                                                v-model="lname"
-                                                label="Last Name"
-                                                outlined
-                                                type="text"
-                                                required
-                                            ></v-text-field>
-                                        </v-col>
-                                            <v-col cols="12" md="12" sm="12">
-                                            <v-text-field
-                                                v-model="email"
+                                                v-model="user.email"
                                                 label="E-mail"
                                                 type="email"
                                                 outlined
                                                 required
+                                                value="johnbon@me.com"
                                             ></v-text-field>
                                         </v-col>
                                         <v-col cols="12" md="12" sm="12">
                                             <v-text-field
-                                                v-model="password"
+                                                v-model="user.password"
                                                 label="Password"
+                                                @keyup.enter="login"
                                                 type="password"
                                                 outlined
                                                 required
+                                                value="12345678"
                                             ></v-text-field>
                                         </v-col>
                                     </v-row>
                                     <v-row>
-                                        <v-col cols="12" md="3" sm="3">
+                                        <!-- <v-col cols="12" md="3" sm="3">
                                             <v-select
                                                 :items="items"
                                                 :rules="[v => !!v || 'Item is required']"
@@ -125,17 +110,20 @@
                                                 required
                                                 outlined
                                             ></v-select>
-                                        </v-col>
-                                        <v-col cols="12" md="9" sm="9">
+                                        </v-col> -->
+                                        <!-- <v-col cols="12" md="9" sm="9">
                                             <v-text-field
                                                 outlined
                                                 label="phone number"
                                                 type="number"
                                                 required
                                             ></v-text-field>
-                                        </v-col>
+                                        </v-col> -->
                                     </v-row>
-                                    <v-row justify="center">
+                                    <v-container>
+                                        <v-btn router to="/signup" text rounded color="green">Sign-Up</v-btn>
+                                    </v-container>
+                                    <!-- <v-row justify="center">
                                         <v-col cols="12" md="6" sm="6">
                                             <v-switch v-model="disabled" class="ma-2" label="Demo Account"></v-switch>
                                         </v-col>
@@ -153,10 +141,10 @@
                                             ></v-checkbox>
                                             </div>
                                         </v-container>
-                                    </v-row>
+                                    </v-row> -->
                                     <div class="text-center">
                                         <v-container>
-                                            <v-btn dark rounded block class="text-center indigo">Create Account</v-btn>
+                                            <v-btn @click="login" dark rounded block class="text-center indigo">Login</v-btn>
                                         </v-container>
                                     </div>
                                     <v-row justify="center">
@@ -196,6 +184,7 @@
 
 
 <script>
+import firebase from 'firebase';
 import AppBar from '@/components/core/AppBar.vue';
 import Footer from '@/components/core/Footer.vue';
 
@@ -208,11 +197,32 @@ export default {
 
     data() {
         return {
-            fname: "",
-            lname: "",
-            email: "",
-            phoneNumber: "",
-            password: null,
+            user: {
+                email: "",
+                password: "",
+            },
+
+        }
+    },
+
+    methods: {
+        login() {
+            firebase.auth().signInWithEmailAndPassword(
+                this.user.email, this.user.password
+            )
+                .then(user => {
+                    this.$router.replace("/user");
+                    console.log(user);
+                }).catch(function(err) {
+                    let errCode = err.code;
+                    let errMsg = err.message;
+                    if (errCode == 'auth/wrong-password') {
+                        alert("Wrong Password.");
+                    } else {
+                        alert(errMsg)
+                    }
+                    console.error(`${err}`)
+                })
         }
     }
 }
@@ -238,4 +248,4 @@ export default {
     .googleY {
         color: #f4c20d !important;
     }
-</style>
+ 
