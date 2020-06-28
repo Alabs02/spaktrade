@@ -8,7 +8,7 @@
          id="appbar"
          class="bar"
         >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
             <v-toolbar-title>Spak Trade</v-toolbar-title>
 
@@ -93,10 +93,60 @@
                         <v-list-item-title>Sign out</v-list-item-title>
                     </v-list-item>
                 </v-list>
-                
             </v-menu>
-            
         </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" absolute temporary>
+            <v-list-item>
+                <v-list-item-avatar>
+                    <v-avatar size="100">
+                        <v-img
+                            src="@/assets/spaktrade.png"
+                        ></v-img>
+                    </v-avatar>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                    <v-list-item-title class="title indigo--text">SpakTrade</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
+            <v-divider class="mx-4"></v-divider>
+            <v-list
+            nav
+            dense
+            >
+                <v-list-item
+                    link
+                    @click="userList"
+                >
+                    <v-list-item-icon><v-icon>{{ listIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >User Lists</v-list-item-title>
+                </v-list-item>
+            
+                <v-list-item
+                    link
+                    router to="/tutorials"
+                >
+                    <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >Trading Tutorials</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item
+                    link
+                    router to="/calendar"
+                >
+                    <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >Calendar</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item
+                    link
+                    @click="myForum"
+                >
+                    <v-list-item-icon><v-icon>{{ forumIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >Forum</v-list-item-title>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
     </div>
 </template>
 
@@ -141,6 +191,7 @@ export default {
             forumIcon: mdiForumOutline,
 
             // Js code
+            drawer: false,
             barItems: [
                 { title: "Home", icon: mdiHomeCityOutline, to: "/" },
                 { title: "Traders", icon: mdiTrademark, to: "/traders/all" },
