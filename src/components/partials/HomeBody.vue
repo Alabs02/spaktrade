@@ -54,10 +54,10 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" md="4" sm="12">
-                        <v-btn class="text-center purple darken-3 mr-2" large dark rounded block>Trade now</v-btn>
+                        <v-btn router to="/traders/all" class="text-center purple darken-3 mr-2" large dark rounded block>View Traders</v-btn>
                     </v-col>
                     <v-col cols="12" md="4" sm="12">
-                        <v-btn color="purple darken-3" large  rounded outlined block class="ml-2" >Join as an investor</v-btn>
+                        <v-btn router to='/login' color="purple darken-3" large  rounded outlined block class="ml-2" >Trade now</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -288,7 +288,7 @@
                     sm="12"
                     >
                         <v-img
-                        src="@/assets/discover.svg"
+                        src="@/assets/head.gif"
                         ></v-img>
                     </v-col>
                 </v-row>
