@@ -2,7 +2,7 @@
   <div class="home">
     <app-bar />
     <v-main>
-      <carousel />
+      <parallax />
       
       <home-body />
    
@@ -14,7 +14,8 @@
 <script>
 // @ is an alias to /src
 import AppBar from '@/components/core/AppBar.vue';
-import Carousel from '@/components/partials/Carousel.vue';
+//import Carousel from '@/components/partials/Carousel.vue';
+import Parallax from '@/components/partials/Parallax.vue';
 import HomeBody from '@/components/partials/HomeBody.vue';
 import Footer from '@/components/core/Footer.vue';
 
@@ -24,7 +25,7 @@ export default {
   name: 'Home',
   components: {
     'app-bar': AppBar,
-    'carousel': Carousel,
+    'parallax': Parallax,
     'home-body': HomeBody,
     'footer-app': Footer,
   }
