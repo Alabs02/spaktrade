@@ -6,15 +6,15 @@
                 <v-row justify="center">
                     <v-card class="mx-auto" min-width="400">
                         <v-container>
+                            <h5 class="text-center headline pink--text text--darken-4 font-weight-bold">Sign Up on Spak Trade</h5>
                             <form action="">
                                 <v-row justify="center">
                                     <v-col cols="12" md="12">
                                         <v-text-field 
-                                        v-model="user.fname"
+                                        v-model.trim="signupForm.name"
                                         color="indigo"
-                                        label="First Name"
+                                        label="Name"
                                         outlined
-                                        disabled
                                         type="text"
                                         >
                                         </v-text-field>
@@ -22,19 +22,18 @@
 
                                     <v-col cols="12" md="12">
                                         <v-text-field 
-                                        v-model="user.lname"
+                                        v-model.trim="signupForm.number"
                                         color="indigo"
-                                        label="Last Name"
+                                        label="Phone Number"
                                         type="text"
                                         outlined
-                                        disabled
                                         >
                                         </v-text-field>
                                     </v-col>
 
                                     <v-col cols="12" md="12">
                                         <v-text-field 
-                                        v-model="user.email"
+                                        v-model.trim="signupForm.email"
                                         color="indigo"
                                         label="E-mail"
                                         type="email"
@@ -46,34 +45,41 @@
 
                                     <v-col cols="12" md="12">
                                         <v-text-field 
-                                        v-model="user.password"
+                                        v-model.trim="signupForm.password"
                                         color="indigo"
                                         label="Password"
                                         type="password"
-                                        @keyup.enter="register"
+                                        @keyup.enter="signup"
                                         outlined
                                         value="12345678"
                                         >
                                         </v-text-field>
                                     </v-col>
                                 </v-row>
-                                <v-card-actions>
-                                    <v-btn @click="register" dark rounded color="indigo">Register</v-btn>
+                                <v-card-actions class="text-center">
+                                    <v-row justify="center">
+                                        <v-container>
+                                            <v-btn @click="signup" dark  block color="indigo">sign up</v-btn>
+                                        </v-container>
+                                    </v-row>
                                 </v-card-actions>
                             </form>
                         </v-container>
                     </v-card>
                 </v-row>
             </v-container>
+            <v-overlay :value="performingRequest">
+                <v-progress-circular color="indigo lighten-4" indeterminate size="65"></v-progress-circular>
+            </v-overlay>
         </v-main>
         <footer-app />
     </div>
 </template>
 
 <script>
-import firebase from 'firebase';
 import AppBar from '@/components/core/AppBar.vue'
 import Footer from '@/components/core/Footer.vue'
+const fb = require('../../firebaseConfig')
 
 export default {
     components: {
@@ -83,37 +89,91 @@ export default {
     data() {
         return {
             dialog: false,
-            user: {
-                fname: "",
-                lname: "",
+            signupForm: {
+                name: "",
+                number: "",
                 email: "",
                 password: ""
-            }
+            },
+            users: [],
+            newUser: "",
+            performingRequest: false,
+            userSignupEmail: null,
+
         }
     },
 
     methods: {
-        register() {
-            firebase.auth().createUserWithEmailAndPassword(
-                this.user.email,
-                this.user.password
-            )
-            // eslint-disable-next-line no-unused-vars
-                .then(cred => {
-                    this.$router.replace('account-details');
-                    console.log(cred);
-                })
-                .catch(function(err) {
-                    let errCode = err.code;
-                    let errMsg = err.message;
-                    if(errCode == 'auth/weak-password') {
-                        alert("Password should be atleast 8 characters!");
+        verifyEmail() {
+            const user  =fb.auth.currentUser;
+            user.sendEmailVerification().then(() => {
+                alert('Verification email sent successfully...')
+            }).catch(error => {
+                if(error) {
+                    alert('Error occured, please try again...')
+                    throw error
+                }
+            });
+        },
+
+        signup: function() {
+            this.performingRequest = true
+            fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password)
+                .then(user => {
+                    this.$store.commit('SETCURRENTUSER', user)
+                    console.log(user)
+
+                    // create user object
+
+                    const newUser = fb.auth.currentUser
+                    newUser.updateProfile({
+                        displayName: this.signupForm.name,
+                    }).then(() => {
+                        alert('Users profile updated successfully')
+                        alert(`${user.user.email}, ${user.user.emailVerified}, ${user.user.displayName},  ${user.user.uid}`)
+                        this.verifyEmail()
+                        this.performingRequest = false
+                        this.$router.push('/account-details')
+
+                        fb.usersCollection.doc(user.user.uid.toString()).set({
+                            number: this.signupForm.number,
+                            timestamp: new Date(),
+                        }).then(() => {
+                            alert('Document successfully written!')
+                            const userDocRef = fb.usersCollection.doc(user.user.uid.toString())
+
+                            userDocRef.get().then(doc => {
+                                if (doc.exists) {
+                                    console.log('Document data', doc.data())
+                                    this.performingRequest = false
+                                } else {
+                                    console.log('No such document!')
+                                    this.performingRequest = false
+                                }
+                            })
+                            this.performingRequest = false
+                        }).catch(error => {
+                            console.error("Error writing document: ", error)
+                            this.performingRequest = false
+                        })
+                    }).catch(error => {
+                        alert('An error occured, please try...')
+                        this.performingRequest = false
+                        throw error
+                    })
+                }).catch(error => {
+                    let errCode = error.code;
+                    let errMsg = error.message;
+                    if (errCode == 'auth/weak-password') {
+                        alert('Password is too weak...')
+                        console.error(errCode)
                     } else {
-                        alert(errMsg);
+                        alert('An error happened, check your internet connection...')
+                        this.performingRequest = false
+                        console.error(errMsg)
                     }
-                    console.error(err);
-                });
-        }
+                })      
+        },
     }
 }
 </script>

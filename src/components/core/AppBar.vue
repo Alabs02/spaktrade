@@ -14,7 +14,7 @@
 
             <v-spacer></v-spacer>
 
-            <div class="hidden-md-and-down">
+            <div  class="hidden-md-and-down">
                 <v-btn 
                  v-for="(bar, i) in barItems"
                  :key="i"
@@ -71,15 +71,13 @@
                     </v-list-item>
                 </v-list>
             </v-menu>
-            <v-btn router to="/login" color="white" rounded outlined class="ml-2">Login</v-btn>
+            <v-btn v-show="showLoginBtn" router to="/login" color="white" rounded outlined class="ml-2">Login</v-btn>
         </v-app-bar>
-        <v-navigation-drawer v-model="drawer" absolute temporary>
+        <v-navigation-drawer class="fix-nav" v-model="drawer" temporary>
             <v-list-item>
                 <v-list-item-avatar>
-                    <v-avatar size="100">
-                        <v-img
-                            src="@/assets/spaktrade.png"
-                        ></v-img>
+                    <v-avatar>
+                        <img src="@/assets/spaktrade.png" width="30%" height="30%" alt="logo">
                     </v-avatar>
                 </v-list-item-avatar>
                 <v-list-item-content>
@@ -93,7 +91,35 @@
             >
                 <v-list-item
                     link
+                    router to="/"
+                    color="pink darken-4"
+                >
+                    <v-list-item-icon><v-icon>{{ homeIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >Home</v-list-item-title>
+                </v-list-item>
+            
+                <v-list-item
+                    link
+                    router to="/traders/all"
+                    color="pink darken-4"
+                >
+                    <v-list-item-icon><v-icon>{{ tradersIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >Traders</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item
+                    link
+                    router to="/combos"
+                    color="pink darken-4"
+                >
+                    <v-list-item-icon><v-icon>{{ combosIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >Combos</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item
+                    link
                     @click="userList"
+                    color="pink darken-4"
                 >
                     <v-list-item-icon><v-icon>{{ listIcon }}</v-icon></v-list-item-icon>
                     <v-list-item-title >User Lists</v-list-item-title>
@@ -102,6 +128,7 @@
                 <v-list-item
                     link
                     router to="/tutorials"
+                    color="pink darken-4"
                 >
                     <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
                     <v-list-item-title >Trading Tutorials</v-list-item-title>
@@ -110,6 +137,7 @@
                 <v-list-item
                     link
                     router to="/calendar"
+                    color="pink darken-4"
                 >
                     <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
                     <v-list-item-title >Calendar</v-list-item-title>
@@ -118,9 +146,19 @@
                 <v-list-item
                     link
                     @click="myForum"
+                    color="pink darken-4"
                 >
                     <v-list-item-icon><v-icon>{{ forumIcon }}</v-icon></v-list-item-icon>
                     <v-list-item-title >Forum</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item
+                    link
+                    router to="/contact"
+                    color="pink darken-4"
+                >
+                    <v-list-item-icon><v-icon>{{ contactIcon }}</v-icon></v-list-item-icon>
+                    <v-list-item-title >Contact Us</v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
@@ -133,19 +171,14 @@
 import { mdiTrademark } from '@mdi/js';
 import { mdiShopping } from '@mdi/js';
 import { mdiFeatureSearchOutline } from '@mdi/js';
-// import { mdiBitcoin } from '@mdi/js';
-import { mdiContactsOutline } from '@mdi/js';
+import { mdiPhoneOutline } from '@mdi/js';
 import { mdiMagnify } from '@mdi/js';
 import { mdiHomeCityOutline } from '@mdi/js';
 import { mdiFormatListBulletedTriangle } from '@mdi/js';
-// import { mdiWall } from '@mdi/js';
 import { mdiCalendarOutline } from '@mdi/js';
-import { mdiForumOutline } from '@mdi/js';
 import { mdiTeach } from '@mdi/js';
-// import { mdiChartTree } from '@mdi/js';
-
-// import Login from '@/components/users/Login.vue';
-// import SignUp from '@/components/users/Signup.vue';
+import { mdiForumOutline } from '@mdi/js';
+const fb = require('../../firebaseConfig')
 
 
 export default {
@@ -157,19 +190,30 @@ export default {
     data() {
         return {
             drawer: false,
+            showLoginForm: true,
             searchIcon: mdiMagnify, 
             featureSIcon: mdiFeatureSearchOutline,
             listIcon: mdiFormatListBulletedTriangle,
             tutoIcon: mdiTeach,
             calendarIcon: mdiCalendarOutline,
             forumIcon: mdiForumOutline,
+            homeIcon: mdiHomeCityOutline,
+            tradersIcon: mdiTrademark,
+            combosIcon: mdiShopping,
+            contactIcon: mdiPhoneOutline,
             barItems: [
                 { title: "Home", icon: mdiHomeCityOutline, to: "/" },
                 { title: "Traders", icon: mdiTrademark, to: "/traders/all" },
                 { title: "Combos", icon: mdiShopping, to: "/combos" },
-                { title: "Contact Us", icon: mdiContactsOutline, to: "/contact" }
+                { title: "Contact Us", icon: mdiPhoneOutline, to: "/contact" }
             ],
+            showLoginBtn: null,
+
         }
+    },
+
+    created() {
+        this.displayBtn()
     },
 
     methods: {
@@ -181,7 +225,23 @@ export default {
         },
         calendar() {
             alert('Calendar Under developement!');
+        },
+        displayBtn() {
+            const user = fb.auth.currentUser
+            if(user == null)
+                this.showLoginBtn = false
+            else {
+                this.showLoginBtn = true
+            }
         }
+    },
+    computed: {
+        getUser() {
+            return this.$store.state.user
+        },
+        // showLoginBtn() {
+        //     return this.$store.state.showLoginBtn
+        // }
     }
 }
 </script>
@@ -193,5 +253,10 @@ export default {
     .bar {
         /* background-image: linear-gradient(to bottom right, #F44336, #E65100, #FFEB3B); */
         background-image: linear-gradient(to bottom left, #1A237E, #4A148C, #880E4F);
+    }
+    .fix-nav {
+        height: 100% !important;
+        width: 20% !important;
+        position:fixed !important;
     }
 </style>

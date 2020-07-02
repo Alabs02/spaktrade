@@ -4,13 +4,15 @@ import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 import Contact from '../views/Contact.vue';
 import Traders from '../views/Traders.vue';
-import Trade from '../views/Trade.vue';
+import Tool from '../views/Trade.vue';
 import Combos from '../views/Combos.vue';
 import Tutorials from '../views/TradingTutorials.vue';
 import Login from '../components/users/Login.vue';
+import Forgot from '../components/users/ForgotPassword.vue';
 import Signup from '../components/users/Signup.vue';
 import User from '../components/users/Settings.vue';
 import SubLogin from '../components/partials/SubLogin.vue';
+import Welcome from '../components/partials/Welcome.vue';
 import Calendar from '../components/partials/Calendar.vue';
 import firebase from 'firebase';
 
@@ -28,19 +30,15 @@ Vue.use(VueRouter)
     {
       path: '/tutorials',
       name: 'Tutorials',
-      component: Tutorials
-    },
-    {
-      path: '/trade',
-      name: 'Trade',
-      component: Trade,
+      component: Tutorials,
       meta: { requiresAuth: true }
     },
-    // {
-    //   path: '/tutorials',
-    //   name: 'Tutorials',
-    //   component: Tutorials
-    // },
+    {
+      path: '/tool',
+      name: 'Tool',
+      component: Tool,
+      meta: { requiresAuth: true }
+    },
     {
       path: '/about',
       name: 'About',
@@ -74,6 +72,11 @@ Vue.use(VueRouter)
       component: Login
     },
     {
+      path: '/reset',
+      name: 'Forgot',
+      component: Forgot
+    },
+    {
       path: '/signup',
       name: 'Signjup',
       component: Signup
@@ -88,6 +91,12 @@ Vue.use(VueRouter)
       path: '/user',
       name: 'User',
       component: User,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/welcome',
+      name: 'Welcome',
+      component: Welcome,
       meta: { requiresAuth: true }
     },
 ]

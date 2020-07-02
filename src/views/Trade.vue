@@ -64,7 +64,7 @@
                         <v-container>
                             <v-card-text class="body-1 font-weight-medium green--text text--darken-2">
                                 <p class="purple--text">Results: </p>
-                                <v-card-text class="body-1"> <v-chip dark class="ma-2" color="green">{{convertfrom}}</v-chip> {{amount}}  equals <span class="font-weight-bold" style="font-size: 1.3rem !important;">{{finalamount}}</span> <v-chip dark class="ma-2" color="red">{{convertto}}</v-chip></v-card-text>
+                                <v-card-text class="body-1"> <v-chip dark class="ma-2" color="green">{{convertfrom}}</v-chip> <span style="font-size: 1.3rem !important;">{{ amount}}</span>  equals <span class="font-weight-bold" style="font-size: 1.3rem !important;">{{finalamount}}</span> <v-chip dark class="ma-2" color="red">{{convertto}}</v-chip></v-card-text>
                             </v-card-text>
                         </v-container>
                     </v-card>
@@ -79,7 +79,14 @@
 <script>
 import AppBar from '@/components/core/AppBarUser.vue';
 import Footer from '@/components/core/Footer.vue';
+// import { Cashify } from 'cashify';
+// import currency from 'currencyjs';
 
+// const rates = {
+//     GBP: 0.92,
+//     EUR: 1.00,
+//     USD: 1.12
+// }
 
 export default {
     components: {
@@ -93,12 +100,6 @@ export default {
 
             // Js code
             currencies: ['USD', 'EUR', 'INR', 'BHD'],
-            currencyfrom : [
-                {name : "USD", desc:"US Dollar"},
-                {name:"EUR", desc:"Euro"},
-                {name:"INR", desc:"Indian Rupee"},
-                {name:"BHD", desc:"Bahraini Dinar"}
-            ],
             convertfrom: "INR",
             convertto:"USD",
             trade: [
@@ -122,7 +123,12 @@ export default {
                     cur: 'USD',
                     amount: 10000
                 },
-            ]
+            ],
+            // rates: {
+            //     GBP: 0.92,
+            //     EUR: 1.00,
+            //     USD: 1.12
+            // }
 
         }
     },
@@ -135,6 +141,12 @@ export default {
     },
 
     computed :{
+        // convert() {
+        //     const cashify = new Cashify({ base: 'EUR', rates });
+        //     const converted = cashify.convert(this.amount, { from: this.convertfrom, to: this.convertto });
+        //     // currency(converted, { symbol: '€', formatWithSymbol: true }).format();
+        //     return converted;
+        // },
         finalamount:function() {
         var to = this.convertto;
         var from = this.convertfrom;

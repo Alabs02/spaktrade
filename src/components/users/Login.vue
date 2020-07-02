@@ -4,76 +4,9 @@
 
         <v-main class="text-center">
             <v-container>
-                <h5 class="display-1 font-weight-medium text-cenmter grey--text text--darekn-1">Join us at SpakTrade</h5>
-                <v-container>
-                    <p class="text-center body-1 font-weight-medium">Create a real money account
-                        Or practise with a Demo
-                    </p>
-                </v-container>
+                <h5 class="display-1 font-weight-medium text-cenmter grey--text text--darekn-1">Welcome Back</h5>
+                <v-container></v-container>
                 <v-row justify="center">
-                    <v-col cols="12" md="6" sm="12">
-                        <v-card flat elevation="0" style="background-color: transparent !important;">
-                            <v-container>
-                                <v-row justify="center">
-                                    <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
-                                            <v-img
-                                                src="@/assets/password.svg"
-                                            ></v-img>
-                                        </v-avatar>
-                                    </v-col>
-
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
-                                    </v-col>
-                                     <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
-                                            <v-img
-                                                src="@/assets/password.svg"
-                                            ></v-img>
-                                        </v-avatar>
-                                    </v-col>
-
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
-                                    </v-col>
-
-                                     <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
-                                            <v-img
-                                                src="@/assets/password.svg"
-                                            ></v-img>
-                                        </v-avatar>
-                                    </v-col>
-
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
-                                    </v-col>
-
-                                     <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
-                                            <v-img
-                                                src="@/assets/password.svg"
-                                            ></v-img>
-                                        </v-avatar>
-                                    </v-col>
-
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
-                                    </v-col>
-                                </v-row>
-                            </v-container>
-                        </v-card>
-                    </v-col>
-
                     <v-col cols="12" md="6" sm="12">
                         <v-card elevation="1">
                             <v-container>
@@ -81,70 +14,34 @@
                                     <v-row>
                                         <v-col cols="12" md="12" sm="12">
                                             <v-text-field
-                                                v-model="user.email"
+                                                v-model="loginForm.email"
                                                 label="E-mail"
                                                 type="email"
                                                 outlined
                                                 required
-                                                value="johnbon@me.com"
                                             ></v-text-field>
                                         </v-col>
                                         <v-col cols="12" md="12" sm="12">
                                             <v-text-field
-                                                v-model="user.password"
+                                                v-model.trim="loginForm.password"
                                                 label="Password"
                                                 @keyup.enter="login"
                                                 type="password"
                                                 outlined
                                                 required
-                                                value="12345678"
                                             ></v-text-field>
                                         </v-col>
                                     </v-row>
-                                    <v-row>
-                                        <!-- <v-col cols="12" md="3" sm="3">
-                                            <v-select
-                                                :items="items"
-                                                :rules="[v => !!v || 'Item is required']"
-                                                label="+234"
-                                                required
-                                                outlined
-                                            ></v-select>
-                                        </v-col> -->
-                                        <!-- <v-col cols="12" md="9" sm="9">
-                                            <v-text-field
-                                                outlined
-                                                label="phone number"
-                                                type="number"
-                                                required
-                                            ></v-text-field>
-                                        </v-col> -->
-                                    </v-row>
-                                    <v-container>
-                                        <v-btn router to="/signup" text rounded color="green">Sign-Up</v-btn>
-                                    </v-container>
-                                    <!-- <v-row justify="center">
-                                        <v-col cols="12" md="6" sm="6">
-                                            <v-switch v-model="disabled" class="ma-2" label="Demo Account"></v-switch>
-                                        </v-col>
-                                        <v-col cols="12" md="6" sm="6">
-                                            <v-switch v-model="disabled" class="ma-2" label="Real Account"></v-switch>
-                                        </v-col>
-
-                                        <v-container>
-                                            <div class="text-center">
-                                                <v-checkbox
-                                                v-model="checkbox"
-                                                :rules="[v => !!v || 'You must agree to continue!']"
-                                                label="I have read and I accept the Terms and Conditions and the Privacy Policy of SpakTrade."
-                                                required
-                                            ></v-checkbox>
-                                            </div>
-                                        </v-container>
-                                    </v-row> -->
                                     <div class="text-center">
                                         <v-container>
                                             <v-btn @click="login" dark rounded block class="text-center indigo">Login</v-btn>
+                                        </v-container>
+                                        <v-container>
+                                            <v-row>
+                                                <v-btn router to="/reset" text rounded color="green">Forgot Password</v-btn>
+                                                <v-spacer></v-spacer>
+                                                <v-btn router to="/signup" text rounded color="green">Create an Account</v-btn>
+                                            </v-row>
                                         </v-container>
                                     </div>
                                     <v-row justify="center">
@@ -152,6 +49,9 @@
                                         <v-col cols="12" md="4" sm="4"><span class="ml-6 signUp">Or Sign up using </span></v-col>
                                         <v-col cols="12" md="3" sm="4"><v-divider></v-divider></v-col>
                                     </v-row>
+                                    <v-container>
+                                        <v-btn router to="/signup" text rounded color="green">Sign-Up</v-btn>
+                                    </v-container>
                                     <v-row justify="center">
                                         <v-col cols="12" md="4" sm="6">
                                         <v-btn rounded block dark class="facebook font-weight-bold" style="text-transform: lowercase !important; font-size: 1.2rem !important;">facebook</v-btn>
@@ -176,17 +76,37 @@
                     </v-col>
                 </v-row>
             </v-container>
-        </v-main>
+            <!-- <v-snackbar
+             v-model="loginSuccess"
+             color="grey darken-3"
+             top
+             :timeout="timeout"
+            >{{ currentUserEmail }} has logged in successfully!</v-snackbar> -->
+            <v-snackbar
+            v-model="loginSnack"
+            :timeout="timeout"
+            top
+            transition="scale-center"
+            color="grey darken-3"
+            dark
+            >
+                {{ text }}
+            </v-snackbar>
 
+            <v-overlay :value="performingRequest">
+                <v-progress-circular color="indigo lighten-4" indeterminate size="65"></v-progress-circular>
+                <v-btn color="pink" text>close</v-btn>
+            </v-overlay>
+        </v-main>
        <footer-app />
    </div>
 </template>
 
 
 <script>
-import firebase from 'firebase';
 import AppBar from '@/components/core/AppBar.vue';
 import Footer from '@/components/core/Footer.vue';
+const fb = require('../../firebaseConfig')
 
 
 export default {
@@ -197,33 +117,55 @@ export default {
 
     data() {
         return {
-            user: {
+            loginForm: {
                 email: "",
                 password: "",
             },
+            showLoginForm: true,
+            performingRequest: false,
+            currentUserEmail: "",
+            loginSnack: false,
+            text: 'Logged in successfully!',
+            timeout: 3000,
 
         }
     },
 
     methods: {
+        toggleForm() {
+            this.showLoginForm = !this.showLoginForm;
+        },
+
         login() {
-            firebase.auth().signInWithEmailAndPassword(
-                this.user.email, this.user.password
-            )
+            this.performingRequest = true
+            fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password)
                 .then(user => {
-                    this.$router.replace("/user");
-                    console.log(user);
-                }).catch(function(err) {
-                    let errCode = err.code;
-                    let errMsg = err.message;
-                    if (errCode == 'auth/wrong-password') {
-                        alert("Wrong Password.");
+                    this.$store.commit('SETCURRENTUSER', user.user)
+                    this.$store.dispatch('fetchUserProfile')
+                    this.showLoginForm = false
+                    this.$store.commit('SHOWLOGINBTN', this.showLoginForm)
+                    this.performingRequest = false
+                    this.loginSnack = true
+                    this.currentUserEmail = user.user.email
+                    this.$store.commit('SETUSEREMAIL', this.currentUserEmail)
+                    // alert(`${user.user.email} is logged in successfully!`)
+                    setTimeout(this.$router.replace("/user"), 3500)
+                    // this.$router.replace("/user")
+                }).catch(error => {
+                    let errCode = error.code;
+                    let errMsg = error.message;
+                    if(errCode == 'auth/wrong-password') {
+                        alert('Wrong Password')
+                        this.performingRequest = false
                     } else {
-                        alert(errMsg)
+                        console.log(errMsg)
+                        alert(`${errMsg}`)
+                        this.performingRequest = false
                     }
-                    console.error(`${err}`)
-                })
-        }
+                    console.log(`${error}`)
+                });
+        },
+        
     }
 }
 </script>

@@ -8,28 +8,26 @@
                     <h6 class="display-1 font-weight-medium">Your {{ }} Account</h6>
                     <form action="">
                         <v-container>
-                            <p class="text-center body-2 font-weight-medium">1. Choose Account Type</p>
                             <v-row justify="center">
                                 <v-col cols="12" md="6" sm="12">
-                                    <v-card elevation="8" color="purple lighten-5">
+                                    <v-card elevation="8" height="130" color="purple lighten-5">
                                         <v-container>
-                                            <h5 class="headline font-weight-bold mt-2">Profit Sharing<span>*</span></h5>
-                                            <p class="body-1 font-weight-medium mt-4">Recommend for beginners</p>
+                                            <h5 class="headline font-weight-bold mt-4">Profit Sharing<span>*</span></h5>
+                                            <!-- <p class="body-1 font-weight-medium mt-4">Recommend for beginners</p> -->
                                         </v-container>
                                     </v-card>
                                 </v-col>
 
                                 <v-col cols="12" md="6" sm="12">
-                                    <v-card elevation="8">
+                                    <v-card height="130" elevation="8">
                                         <v-container>
-                                            <h5 class="headline font-weight-bold mt-2">Classic</h5>
-                                            <p class="body-1 font-weight-medium mt-4">Recommend for Advanced Users</p>
+                                            <h5 class="headline font-weight-bold mt-4">Classic</h5>
+                                            <!-- <p class="body-1 font-weight-medium mt-4">Recommend for Advanced Users</p> -->
                                         </v-container>
                                     </v-card>
                                 </v-col>
                             </v-row>
 
-                            <p class="text-center body-2 font-weight-medium">2. Specify Account Details</p>
 
                             <v-row justify="center">
                                 <v-col cols="12" md="6" sm="6">
@@ -49,26 +47,22 @@
                                     <v-text-field
                                     outlined
                                     label="Amount"
-                                    value="10,000"
+                                    value="0"
                                     type="number"
                                     disabled
                                     >
                                     </v-text-field>
                                 </v-col>
-
-                                <v-col cols="12" md="12">
-                                    <v-select
-                                    :items="leveis"
-                                    outlined
-                                    label="Leverage"
-                                    value="20:1"
-                                    disabled
-                                    ></v-select>
-                                </v-col>
                             </v-row>
 
                             <v-container class="mb-12">
-                                <v-btn router to="/user" dark rounded color="indigo">create demo account</v-btn>
+                                <!-- <form action="https://bitpay.com/checkout" method="post" >
+                                <input type="hidden" name="action" value="checkout" />
+                                <input type="hidden" name="posData" value="" />
+                                <input type="hidden" name="data" value="7TjkyyGzmOARMXPoMPDYOr3jmrniunvNS9lq36O09adsqC7+RhMpI0PKIUKeghs8K8txPuwjXOKOsyW/abpiEwpj9qEytCHjmnIRJbeRkFFr6K6OWXBpu31Rp/hlRlCdo1sGwqKgn6RuyJnbprR012dmBM2GTdu0wqoiBYu3LR6eDGi6CP/fRESN6x/swF+gx5SUGUdP2+ckIi4aNX68Sd1dgNNhKeMLFOmGgRd6rwt4OuGvu4y2ayl4pay/uZRgDtX7CcvkrRR3Sg83rdzL2/fHDwhXTUFoClLMWlmw7VYfOIOQtFkgQrdoD0P/xYxGWAli8O/YKWRWk9JnNCpkGzEfI3+9iqsjXr5Thbrc4d6Mgd9PyaIkDUbIiAlcsXuD" />
+                                <v-btn type="submit" name="submit" alt="BitPay, the easy way to pay with bitcoins." ><
+                                </form> -->
+                                <v-btn @click="verified" dark rounded color="indigo">proceed</v-btn>
                             </v-container>
 
                         </v-container>
@@ -82,6 +76,7 @@
 
 <script>
 import AppBar from "@/components/core/AppBar.vue";
+const fb = require('../../firebaseConfig')
 
 export default {
     components: {
@@ -99,7 +94,24 @@ export default {
             currency: "",
             amount: "",
             leverage: "",
+            isVerified: false,
 
+        }
+    },
+
+    computed: {
+
+    },
+
+    methods: {
+        verified() {
+            this.isVerified = fb.auth.currentUser.emailVerified
+            if (this.isVerified === true) 
+                this.$router.push('/welcome')
+                
+            else {
+                alert('Verify your email before you proceed!')
+            }
         }
     }
 }

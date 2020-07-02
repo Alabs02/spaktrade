@@ -12,12 +12,10 @@
                                 <v-avatar tile size="100">
                                     <v-icon color="indigo">{{ chartIcon }}</v-icon>
                                 </v-avatar>
-                                <p class="subtitle-1 font-weight-bold"  style="text-align: center !important;">Traders join Spak Trade</p>
+                                <p class="subtitle-1 font-weight-bold"  style="text-align: center !important;">Trader join spaktrde</p>
                                 <v-container>
                                     <v-card-text class="workText caption">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ratione, 
-                                        eligendi nesciunt facere fuga adipisci 
-                                        itaque odit error quasi unde similique enim impedit ex provident, hic molestias, quo dolorum modi!
+                                        connect their account and <br>share their trading strategy
                                     </v-card-text>
                                 </v-container>
                             </v-col>
@@ -26,12 +24,10 @@
                                 <v-avatar tile size="100">
                                     <v-icon color="indigo">{{ testIcon }}</v-icon>
                                 </v-avatar>
-                                <p class="subtitle-1 font-weight-bold" style="text-align: center !important;" id="workTitle">Traders join Spak Trade</p>
+                                <p class="subtitle-1 font-weight-bold" style="text-align: center !important;" id="workTitle">Spak Trade ranks Traders</p>
                                 <v-container>
                                     <v-card-text class="workText caption">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ratione, 
-                                        eligendi nesciunt facere fuga adipisci 
-                                        itaque odit error quasi unde similique enim impedit ex provident, hic molestias, quo dolorum modi!
+                                        based on their ROI and risk <br>behavior
                                     </v-card-text>
                                 </v-container>
                             </v-col>
@@ -40,12 +36,10 @@
                                 <v-avatar tile size="100">
                                     <v-icon color="indigo">{{ transferIcon }}</v-icon>
                                 </v-avatar>
-                                <p class="subtitle-1 font-weight-bold" style="text-align: center !important;" id="workTitle">Traders join Spak Trade</p>
+                                <p class="subtitle-1 font-weight-bold" style="text-align: center !important;" id="workTitle">Investors select the <br>strategies to copy</p>
                                 <v-container>
                                     <v-card-text class="workText caption">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ratione, 
-                                        eligendi nesciunt facere fuga adipisci 
-                                        itaque odit error quasi unde similique enim impedit ex provident, hic molestias, quo dolorum modi!
+                                        according to their capital and risk <br>appetite
                                     </v-card-text>
                                 </v-container>
                             </v-col>
@@ -60,7 +54,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" md="4" sm="12">
-                        <v-btn class="text-center purple darken-3 mr-2" large dark rounded block>Join as an investor</v-btn>
+                        <v-btn class="text-center purple darken-3 mr-2" large dark rounded block>Trade now</v-btn>
                     </v-col>
                     <v-col cols="12" md="4" sm="12">
                         <v-btn color="purple darken-3" large  rounded outlined block class="ml-2" >Join as an investor</v-btn>
@@ -72,14 +66,14 @@
        <v-sheet class="tradeVolume mt-12">
            <div class="text-center">
                <v-card class="mx-auto volume"  width="50%" elevation="12">
-                   <v-contianer>
+                   <v-container>
                        <v-row justify="start">
                            <v-card-text class="body-1 mt-12">Trading Volume</v-card-text>
                            <v-container>
-                               <p class="display-1 pink--text text--darken-4 font-weight-bold"  style="text-align: center !important;">$123,676,80</p>
+                               <p class="display-1 pink--text text--darken-4 font-weight-bold funds"  style="text-align: center !important;">$00,000</p>
                            </v-container>
                        </v-row>
-                   </v-contianer>
+                   </v-container>
                </v-card>
 
                <v-container>
@@ -153,14 +147,11 @@
                                                     color="indigo"
                                                 ></v-progress-linear>
 
-                                                
-
                                                 <v-spacer></v-spacer>
                                             </v-container>
                                             <v-divider class="mx-4"></v-divider>
                                             <v-card-actions>
                                                 <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">15.4%</span></v-btn><br>
-
 
                                                 <v-spacer></v-spacer>
 
@@ -189,12 +180,12 @@
                                             </v-container>
                                             <v-divider class="mx-4"></v-divider>
                                             <v-card-actions>
-                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">15.4%</span></v-btn><br>
+                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">0%</span></v-btn><br>
 
 
                                                 <v-spacer></v-spacer>
 
-                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">15.4%</span></v-btn>
+                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">0%</span></v-btn>
                                             </v-card-actions>
                                         </v-card>
                                     </v-col>
@@ -219,12 +210,12 @@
                                             </v-container>
                                             <v-divider class="mx-4"></v-divider>
                                             <v-card-actions>
-                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">15.4%</span></v-btn><br>
+                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">0%</span></v-btn><br>
 
 
                                                 <v-spacer></v-spacer>
 
-                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">15.4%</span></v-btn>
+                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">0%</span></v-btn>
                                             </v-card-actions>
                                         </v-card>
                                     </v-col>
@@ -247,11 +238,11 @@
                                             </v-container>
                                             <v-divider class="mx-4"></v-divider>
                                             <v-card-actions>
-                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">15.4%</span></v-btn><br>
+                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">0%</span></v-btn><br>
 
                                                 <v-spacer></v-spacer>
 
-                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">15.4%</span></v-btn>
+                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">0%</span></v-btn>
                                             </v-card-actions>
                                         </v-card>
                                     </v-col>
@@ -275,11 +266,11 @@
                     >
                         <v-card flat class="mx-auto disc">
                             <v-card-text class="mb-3 blue-grey--text body-1 mt-5">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem maiores, sunt culpa consequatur in, 
-                                qui voluptas ad amet est perspiciatis tenetur velit asperiores, 
-                                alias atque nulla animi necessitatibus sequi?
-                                Qooi voluptas ad amet est perspiciatis tenetur velit asperiores, 
-                                alias atque nulla animi necessitatibus sequi?
+                                <h1>Learn How To Trade</h1><br>
+                                Effective training on how to trade. Professional analysis and support 24/7. 
+                                We've taught more than 150,000 traders. You can join us too! Major & Minor 
+                                Currencies. Free Demo Account. Stock & Forex Trading. MetaTrader 4 & 5. 
+                                For Beginners & Experts. 20 Years Of Experience.
                             </v-card-text>
                             <v-card-text style="text-align: center !important;" class="ml-n-5">
                                 <v-icon size="100" color="pink darken-2">{{ speedIcon2 }}</v-icon>
@@ -287,8 +278,8 @@
                             </v-card-text>
                         </v-card>
 
-                        <v-btn large ripple outlined color="indigo">Explore<v-icon right>{{ speedIcon1 }}</v-icon></v-btn>
-                        <v-btn large dark color="indigo" class="ml-2"><v-icon left>{{ findIcon }}</v-icon>discover people</v-btn>
+                        <v-btn large ripple outlined color="indigo">Buy trading Tutorials<v-icon right>{{ speedIcon1 }}</v-icon></v-btn>
+                        <v-btn large dark color="indigo" class="ml-2"><v-icon left>{{ findIcon }}</v-icon>Start Trading</v-btn>
                     </v-col>
 
                     <v-col
@@ -304,7 +295,7 @@
             </v-container>
         </v-sheet>
 
-       <v-sheet>
+       <!-- <v-sheet>
            <v-row>
                <v-card flat>
                     <v-container>
@@ -345,7 +336,7 @@
                                                 The analytics are very useful
                                             </i>
                                             </v-card-text>
-                                            <p class="text-right"><b>Omar - AAA635899F</b></p>
+                                            <p class="text-right"><b>Johnbon</b></p>
                                     </v-container>
                                 </v-card>
                             </v-col>
@@ -368,7 +359,7 @@
                     </v-container>
                 </v-card>
            </v-row>
-       </v-sheet>
+       </v-sheet> -->
 
         <v-sheet class="mt-5 account blue-grey lighten-5">
           <v-container>
@@ -379,7 +370,7 @@
             </v-card-text>
             <v-container>
                 <v-row>
-                    <v-col cols="12" md="6" sm="12">
+                    <!-- <v-col cols="12" md="6" sm="12">
                         <v-card flat elevation="0" style="background-color: transparent !important;">
                             <v-container>
                                 <v-row justify="center">
@@ -440,7 +431,7 @@
                                 </v-row>
                             </v-container>
                         </v-card>
-                    </v-col>
+                    </v-col> -->
 
                     <v-col cols="12" md="6" sm="12">
                         <v-card elevation="1">
@@ -566,6 +557,7 @@ import { mdiHome } from '@mdi/js';
 import { mdiNewspaper } from '@mdi/js';
 import { mdiChartDonutVariant } from '@mdi/js';
 import { mdiBankTransferOut } from '@mdi/js';
+import { mdiCart } from '@mdi/js';
 
 
 //eslint-disable-next-line no-unused-vars
@@ -583,6 +575,7 @@ export default {
         return {
             speedIcon1: mdiSpeedometerMedium,
             speedIcon2: mdiSpeedometer,
+            cartIcon: mdiCart,
             findIcon: mdiFindReplace,
             testIcon: mdiHome,
             newsIcon: mdiNewspaper,
@@ -601,7 +594,7 @@ export default {
             // progress
             active: true,
             height: 7,
-            progressValue: 30,
+            progressValue: 0,
 
 
             items: [
@@ -711,5 +704,15 @@ export default {
     .googleY {
         color: #f4c20d !important;
     }
+    @media screen and (max-width: 1024px) {
+        .funds {
+            font-size: 1.2rem !important;
+        }
+        .volume {
+            width: 200px !important;
+        }
+    }  
+    
+
 
 </style>
