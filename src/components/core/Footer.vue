@@ -6,7 +6,7 @@
     <v-card
       flat
       tile
-      class="indigo darken-4 white--text text-center"
+      class="grey darken-4 white--text text-center"
     >
       <v-card-text>
         <v-btn
@@ -20,7 +20,7 @@
       </v-card-text>
 
       <v-card-text class="white--text pt-0">
-        © Copyright 2020 SpakTrade<br>
+        <br>
 Trading spot currencies involves substantial risk and there is always the potential for loss. Your trading results may vary. Because the risk factor is high in the foreign exchange market trading, only genuine "risk" funds should be used in such trading. If you do not have the extra capital that you can afford to lose, you should not trade in the foreign exchange market. No "safe" trading system has ever been devised, and no one can guarantee profits or freedom from loss. Past performance is not indicative of future results.
 
 Forex Brokers and SpakTrade are compensated for their services through the spread between the bid/ask prices or there may be a cost to initiate a trade through the bid/ask spread. Profit sharing accounts are subject to a monthly subscription fee and a monthly performance fee per selected trading system.
@@ -33,7 +33,7 @@ One of the limitations of hypothetical performance results is that they are gene
       <v-container>
         <v-row justify="center">
             <v-col cols="12" md="6" sm="12">
-                <v-list disabled class="indigo darken-3 listz">
+                <v-list disabled class="grey darken-3 listz">
                     <v-card-title class="text-center font-weight-bold" style="text-align: center !important;">Connect</v-card-title>
                     <v-card-text style="text-align: left !important;">
                         Join the Social Trading revolution. Connect with other traders, discuss trading strategies, and 
@@ -43,27 +43,27 @@ One of the limitations of hypothetical performance results is that they are gene
             </v-col>
 
             <v-col cols="12" md="5" sm="12">
-                <v-sheet color="indigo darken-4">
+                <v-sheet color="grey darken-4">
                     <v-form>
                         <v-text-field
                         label="Contact Us"
                         outlined
                         rounded
-                        solo
-                        color=""
+                        solo-inverted
+                        color="purple"
                         ></v-text-field>
                     </v-form>
                 </v-sheet>
 
-                <v-btn >send <v-icon right>{{ sendIcon }}</v-icon></v-btn>
+                <v-btn color="purple" >send <v-icon right>{{ sendIcon }}</v-icon></v-btn>
             </v-col>
         </v-row>
     </v-container>
 
       <v-divider></v-divider>
 
-      <v-card-text class="white--text grey darken-4">
-        {{ new Date().getFullYear() }} — <strong class="overline">spak trade</strong><span class="ml-2" id="footer-text">© Copyright All Rights reserved</span>
+      <v-card-text class="white--text purple darken-4">
+        {{ new Date().getFullYear() }} — <span class="ml-2" id="footer-text"> All Rights reserved ®</span>  <span><strong class="overline">spak trade</strong></span>
       </v-card-text>
     </v-card>
   </v-footer>

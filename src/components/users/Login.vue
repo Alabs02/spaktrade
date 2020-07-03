@@ -52,7 +52,7 @@
                                     <v-container>
                                         <v-btn router to="/signup" text rounded color="green">Sign-Up</v-btn>
                                     </v-container>
-                                    <v-row justify="center">
+                                    <!-- <v-row justify="center">
                                         <v-col cols="12" md="4" sm="6">
                                         <v-btn rounded block dark class="facebook font-weight-bold" style="text-transform: lowercase !important; font-size: 1.2rem !important;">facebook</v-btn>
                                         </v-col>
@@ -66,7 +66,7 @@
                                                 <span class="googleR font-weight-bold">e</span>
                                             </v-btn>
                                         </v-col>
-                                    </v-row>
+                                    </v-row> -->
                                     <div class="text-center">
                                         <p class="caption blue-grey--text">We will never post anything without your permission</p>
                                     </div>
@@ -82,7 +82,7 @@
              top
              :timeout="timeout"
             >{{ currentUserEmail }} has logged in successfully!</v-snackbar> -->
-            <v-snackbar
+            <!-- <v-snackbar
             v-model="loginSnack"
             :timeout="timeout"
             top
@@ -91,7 +91,7 @@
             dark
             >
                 {{ text }}
-            </v-snackbar>
+            </v-snackbar> -->
 
             <v-overlay :value="performingRequest">
                 <v-progress-circular color="indigo lighten-4" indeterminate size="65"></v-progress-circular>
@@ -145,11 +145,10 @@ export default {
                     this.showLoginForm = false
                     this.$store.commit('SHOWLOGINBTN', this.showLoginForm)
                     this.performingRequest = false
-                    this.loginSnack = true
                     this.currentUserEmail = user.user.email
                     this.$store.commit('SETUSEREMAIL', this.currentUserEmail)
                     // alert(`${user.user.email} is logged in successfully!`)
-                    setTimeout(this.$router.replace("/user"), 3500)
+                    setTimeout(this.$router.replace("/user"), 4000)
                     // this.$router.replace("/user")
                 }).catch(error => {
                     let errCode = error.code;
@@ -159,7 +158,7 @@ export default {
                         this.performingRequest = false
                     } else {
                         console.log(errMsg)
-                        alert(`${errMsg}`)
+                        alert(`Message: ${errMsg}`)
                         this.performingRequest = false
                     }
                     console.log(`${error}`)

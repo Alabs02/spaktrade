@@ -4,67 +4,76 @@
         <v-main>
             <v-container>
                 <v-row justify="center">
-                    <v-card class="mx-auto" min-width="400">
-                        <v-container>
-                            <h5 class="text-center headline pink--text text--darken-4 font-weight-bold">Sign Up on Spak Trade</h5>
-                            <form action="">
-                                <v-row justify="center">
-                                    <v-col cols="12" md="12">
-                                        <v-text-field 
-                                        v-model.trim="signupForm.name"
-                                        color="indigo"
-                                        label="Name"
-                                        outlined
-                                        type="text"
-                                        >
-                                        </v-text-field>
-                                    </v-col>
+                    <v-card class="mx-auto" elevation="0" min-width="400">
+                        <v-row>
+                            <v-col cols="12" md="5" sm="12" class="hidden-md-and-down">
+                                <v-img
+                                    src="@/assets/signin.svg"
+                                ></v-img>
+                            </v-col>
+                            <v-col cols="12" md="7" sm="12">
+                                <v-container>
+                                    <h5 class="text-center display-1 indigo-text text--darken-4 font-weight-bold">Signup</h5>
+                                    <form action="">
+                                        <v-row justify="center">
+                                            <v-col cols="12" md="12">
+                                                <v-text-field 
+                                                v-model.trim="signupForm.name"
+                                                color="indigo"
+                                                label="Name"
+                                                outlined
+                                                type="text"
+                                                >
+                                                </v-text-field>
+                                            </v-col>
 
-                                    <v-col cols="12" md="12">
-                                        <v-text-field 
-                                        v-model.trim="signupForm.number"
-                                        color="indigo"
-                                        label="Phone Number"
-                                        type="text"
-                                        outlined
-                                        >
-                                        </v-text-field>
-                                    </v-col>
+                                            <v-col cols="12" md="12">
+                                                <v-text-field 
+                                                v-model.trim="signupForm.number"
+                                                color="indigo"
+                                                label="Phone Number"
+                                                type="text"
+                                                outlined
+                                                >
+                                                </v-text-field>
+                                            </v-col>
 
-                                    <v-col cols="12" md="12">
-                                        <v-text-field 
-                                        v-model.trim="signupForm.email"
-                                        color="indigo"
-                                        label="E-mail"
-                                        type="email"
-                                        value="johnbon@me.com"
-                                        outlined
-                                        >
-                                        </v-text-field>
-                                    </v-col>
+                                            <v-col cols="12" md="12">
+                                                <v-text-field 
+                                                v-model.trim="signupForm.email"
+                                                color="indigo"
+                                                label="E-mail"
+                                                type="email"
+                                                value="johnbon@me.com"
+                                                outlined
+                                                >
+                                                </v-text-field>
+                                            </v-col>
 
-                                    <v-col cols="12" md="12">
-                                        <v-text-field 
-                                        v-model.trim="signupForm.password"
-                                        color="indigo"
-                                        label="Password"
-                                        type="password"
-                                        @keyup.enter="signup"
-                                        outlined
-                                        value="12345678"
-                                        >
-                                        </v-text-field>
-                                    </v-col>
-                                </v-row>
-                                <v-card-actions class="text-center">
-                                    <v-row justify="center">
-                                        <v-container>
-                                            <v-btn @click="signup" dark  block color="indigo">sign up</v-btn>
-                                        </v-container>
-                                    </v-row>
-                                </v-card-actions>
-                            </form>
-                        </v-container>
+                                            <v-col cols="12" md="12">
+                                                <v-text-field 
+                                                v-model.trim="signupForm.password"
+                                                color="indigo"
+                                                label="Password"
+                                                type="password"
+                                                @keyup.enter="signup"
+                                                outlined
+                                                value="12345678"
+                                                >
+                                                </v-text-field>
+                                            </v-col>
+                                        </v-row>
+                                        <v-card-actions class="text-center">
+                                            <v-row justify="center">
+                                                <v-container>
+                                                    <v-btn @click="signup" rounded dark  block color="indigo">sign up</v-btn>
+                                                </v-container>
+                                            </v-row>
+                                        </v-card-actions>
+                                    </form>
+                                </v-container>
+                            </v-col>
+                        </v-row>
                     </v-card>
                 </v-row>
             </v-container>
@@ -105,7 +114,7 @@ export default {
 
     methods: {
         verifyEmail() {
-            const user  =fb.auth.currentUser;
+            const user  = fb.auth.currentUser;
             user.sendEmailVerification().then(() => {
                 alert('Verification email sent successfully...')
             }).catch(error => {

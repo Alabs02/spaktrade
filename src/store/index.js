@@ -10,7 +10,8 @@ export default new Vuex.Store({
     currentUser: null,
     currentUserEmail: "",
     showLoginBtn: true,
-    userProfile: {}
+    userProfile: {},
+    userName: null,
   },
   mutations: {
     SETCURRENTUSER(state, payload) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     SHOWLOGINBTN(state, payload) {
       state.showLoginBtn = payload
+    },
+    USERNAME(state, val) {
+      state.userName = val
     }
   },
   actions: {

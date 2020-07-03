@@ -1,65 +1,61 @@
 <template>
-  <v-carousel 
-    cycle
-    id="carousel"
-    show-arrows-on-hover
-    >
-      <v-carousel-item 
-        v-for="(slide, i) in slides" 
-        :key="i"
+  <v-carousel v-model="model" hide-delimiters cycle show-arrows-on-hover>
+    <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src">
+      <v-row
+        class="fill-height"
+        align="center"  
+        justify="center"
       >
-         <iframe id="frame" :src="slide.src"  width="100%" height="500">
-           <v-img contain :src="slide.src" height="90%" width="90%"></v-img>
-         </iframe>
-
-        <!-- <v-row
-          align="center"
-          justify="center"
-        >
-          <v-col class="text-center" cols="12">
-            <h1 class="display-1 font-weight-thin mb-4">Vuetify.js</h1>
-            <h4 class="subheading">Build your application today!</h4>
-          </v-col>
-        </v-row> -->
-      </v-carousel-item>
+        <p class="title font-weight-medium" :color="item.color" style="font-size: 2rem !important;" id="caroText">{{ item.text }}</p><br>
+        <v-container id="cont">
+          <p class="text-center body-1">{{ item.desc }}</p>
+        </v-container>
+        
+      </v-row>
+    </v-carousel-item>
   </v-carousel>
 </template>
 
-
-
 <script>
-  export default {
-    data () {
-      return {
-        slides: [
-          
-          {
-            src: 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/finance_0bdk.svg',
-          },
-          {
-            src: 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/investing_7u74.svg',
-          },
-          {
-            src: 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/personal_finance_tqcd.svg',
-          },
-          {
-            src: 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/around_the_world_v9nu.svg',
-          },
-          {
-            src: 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/business_deal_cpi9.svg',
-          },
-        ],
-      }
-    },
+export default {
+  data() {
+    return {
+      items: [
+        {
+          src: "https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=austin-distel-EMPZ7yRZoGw-unsplash.jpg",
+          text: 'The fastest place to trade and achieve great income',
+          desc: 'We also help you to trade and maintain your standard',
+          color: 'white--text'
+        },
+        {
+          src: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=sebastian-herrmann-NbtIDoFKGO8-unsplash.jpg",
+          text: 'Join the winning team SpakTrade', 
+          desc: 'Extra $50 after payment, you can cash out any time you want ',
+          color: 'white--text'
+        },
+        {
+          src: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=stephen-dawson-qwtCeJ5cLYs-unsplash.jpg",
+          text: 'Access to World class trading tutorials',
+          desc: 'We have a complete guide that will help you trade and teach others how to trade',
+          color: 'white--text'
+        },
+      ],
+    };
   }
+};
 </script>
 
 <style scoped>
-  #carousel {
-    height: 500px !important;
-  }
+  @media screen and (max-width: 1024px) {
+    #caroText {
+      font-size: 0.5rem !important;
+      text-align: center !important;
+      font-weight: 400 !important;
+    }
 
-  #frame {
-    border: none;
+  }
+  #cont {
+    padding: 0px !important;
+    margin-top: -20rem !important;
   }
 </style>

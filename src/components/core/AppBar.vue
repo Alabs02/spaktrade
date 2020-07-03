@@ -3,10 +3,8 @@
         <v-app-bar
          app
          dark
-         shrink-on-scroll
-         prominent
          id="appbar"
-         class="bar"
+         color="purple darken-4"
         >
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -56,14 +54,6 @@
 
                     <v-list-item
                         link
-                        router to="/calendar"
-                    >
-                        <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
-                        <v-list-item-title >Calendar</v-list-item-title>
-                    </v-list-item>
-
-                    <v-list-item
-                        link
                         @click="myForum"
                     >
                         <v-list-item-icon><v-icon>{{ forumIcon }}</v-icon></v-list-item-icon>
@@ -76,8 +66,10 @@
         <v-navigation-drawer class="fix-nav" v-model="drawer" temporary>
             <v-list-item>
                 <v-list-item-avatar>
-                    <v-avatar>
-                        <img src="@/assets/spaktrade.png" width="30%" height="30%" alt="logo">
+                    <v-avatar tile size="40">
+                        <v-img
+                         src="@/assets/spakLogo.svg"
+                        ></v-img>
                     </v-avatar>
                 </v-list-item-avatar>
                 <v-list-item-content>
@@ -134,14 +126,14 @@
                     <v-list-item-title >Trading Tutorials</v-list-item-title>
                 </v-list-item>
 
-                <v-list-item
+                <!-- <v-list-item
                     link
                     router to="/calendar"
                     color="pink darken-4"
                 >
                     <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
                     <v-list-item-title >Calendar</v-list-item-title>
-                </v-list-item>
+                </v-list-item> -->
 
                 <v-list-item
                     link
@@ -250,10 +242,10 @@ export default {
 <style scoped>
     
         /* //background: linear-gradient(to buttom right, #1A237E, #1A237E) !important; */
-    .bar {
+    /* .bar {
         /* background-image: linear-gradient(to bottom right, #F44336, #E65100, #FFEB3B); */
-        background-image: linear-gradient(to bottom left, #1A237E, #4A148C, #880E4F);
-    }
+        /* background-image: linear-gradient(to bottom left, #1A237E, #4A148C, #880E4F);
+    } */ 
     .fix-nav {
         height: 100% !important;
         width: 20% !important;

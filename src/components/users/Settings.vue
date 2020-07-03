@@ -308,6 +308,7 @@ export default {
         otherUserDetails() {
             const obj = fb.auth.currentUser
             this.userName = obj.displayName
+            this.$store.commit('USERNAME', this.userName)
             this.userEmail = obj.email
             this.userId = obj.uid
             const dataObj = fb.usersCollection.doc(obj.uid.toString())

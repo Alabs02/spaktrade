@@ -1,718 +1,484 @@
 <template>
-    <div>
+  <div>
+    <v-container>
+      <v-card elevation="0" class="mx-auto text-center">
         <v-container>
-           <span class="display-1">How it works</span>
-           <v-card
-            elevation="7"
-            class="mx-auto text-center"
-           >
-                <v-container>
-                    <v-row justify="center">
-                            <v-col cols="12" md="4" sm="12">
-                                <v-avatar tile size="100">
-                                    <v-icon color="indigo">{{ chartIcon }}</v-icon>
-                                </v-avatar>
-                                <p class="subtitle-1 font-weight-bold"  style="text-align: center !important;">Trader join spaktrde</p>
-                                <v-container>
-                                    <v-card-text class="workText caption">
-                                        connect their account and <br>share their trading strategy
-                                    </v-card-text>
-                                </v-container>
-                            </v-col>
+          <!-- <span class="title mt-8">How it works</span> -->
+          <v-row justify="center">
+            <v-col cols="12" md="4" sm="12">
+              <v-avatar tile size="100">
+                <v-icon color="purple darken-1">{{ chartIcon }}</v-icon>
+              </v-avatar>
+              <p
+                class="subtitle-1 font-weight-bold"
+                style="text-align: center !important;"
+              >Join SpakTrade</p>
+              <v-container>
+                <v-card-text class="workText caption">
+                  connect their account and
+                  <br />share their trading strategy
+                </v-card-text>
+              </v-container>
+            </v-col>
 
-                            <v-col cols="12" md="4" sm="12">
-                                <v-avatar tile size="100">
-                                    <v-icon color="indigo">{{ testIcon }}</v-icon>
-                                </v-avatar>
-                                <p class="subtitle-1 font-weight-bold" style="text-align: center !important;" id="workTitle">Spak Trade ranks Traders</p>
-                                <v-container>
-                                    <v-card-text class="workText caption">
-                                        based on their ROI and risk <br>behavior
-                                    </v-card-text>
-                                </v-container>
-                            </v-col>
+            <v-col cols="12" md="4" sm="12">
+              <v-avatar tile size="100">
+                <v-icon color="purple darken-1">{{ testIcon }}</v-icon>
+              </v-avatar>
+              <p
+                class="subtitle-1 font-weight-bold"
+                style="text-align: center !important;"
+                id="workTitle"
+              >SpakTrade ranks Traders</p>
+              <v-container>
+                <v-card-text class="workText caption">
+                  based on their ROI and risk
+                  <br />behavior
+                </v-card-text>
+              </v-container>
+            </v-col>
 
-                            <v-col cols="12" md="4" sm="12">
-                                <v-avatar tile size="100">
-                                    <v-icon color="indigo">{{ transferIcon }}</v-icon>
-                                </v-avatar>
-                                <p class="subtitle-1 font-weight-bold" style="text-align: center !important;" id="workTitle">Investors select the <br>strategies to copy</p>
-                                <v-container>
-                                    <v-card-text class="workText caption">
-                                        according to their capital and risk <br>appetite
-                                    </v-card-text>
-                                </v-container>
-                            </v-col>
-                    </v-row>
-                </v-container>
-           </v-card>
+            <v-col cols="12" md="4" sm="12">
+              <v-avatar tile size="100">
+                <v-icon color="purple darken-1">{{ transferIcon }}</v-icon>
+              </v-avatar>
+              <p
+                class="subtitle-1 font-weight-bold"
+                style="text-align: center !important;"
+                id="workTitle"
+              >
+                Investors select the
+                <br />strategies to copy
+              </p>
+              <v-container>
+                <v-card-text class="workText caption">
+                  according to their capital and risk
+                  <br />appetite
+                </v-card-text>
+              </v-container>
+            </v-col>
+          </v-row>
         </v-container>
+      </v-card>
+    </v-container>
 
-        <!-- Sheet -->
+    <v-sheet class="mt-5">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="12" md="4" sm="12">
+            <v-btn
+              router
+              to="/login"
+              color="purple darken-3"
+              large
+              rounded
+              dark
+              block
+              class="ml-2"
+            >Join now</v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
 
-        <v-sheet class="mt-8">
-            <v-container>
-                <v-row justify="center">
-                    <v-col cols="12" md="4" sm="12">
-                        <v-btn router to="/traders/all" class="text-center purple darken-3 mr-2" large dark rounded block>View Traders</v-btn>
-                    </v-col>
-                    <v-col cols="12" md="4" sm="12">
-                        <v-btn router to='/login' color="purple darken-3" large  rounded outlined block class="ml-2" >Trade now</v-btn>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-sheet>
+    <v-sheet height="30"></v-sheet>
+    <v-sheet class="sheet2 mt-12" min-height="500" id="sheetGif">
+      <v-container>
+        <v-row class="mt-8">
+          <v-col cols="12" md="6" sm="12">
+            <v-card flat class="mx-auto disc">
+              <v-card-text class="mb-3 blue-grey--text body-1 mt-5">
+                <h1>Learn How To Trade</h1>
+                <br />Effective training on how to trade. Professional analysis and support 24/7.
+                We've taught more than 150,000 traders. You can join us too! Major & Minor
+                Currencies. Free Demo Account. Stock & Forex Trading. MetaTrader 4 & 5.
+                For Beginners & Experts. 20 Years Of Experience.
+              </v-card-text>
+              <!-- <v-card-text style="text-align: center !important;" class="ml-n-5">
+                <v-icon size="100" color="pink darken-2">{{ speedIcon2 }}</v-icon>
+                <span class="purple--text font-weight-bold" style="font-size: 2rem !important;">221</span>
+              </v-card-text>-->
+            </v-card>
+            <v-row>
+              <v-col cols="12" md="6" sm="12">
+                <v-btn router to="/tutorials" large ripple outlined color="purple darken-4">
+                  Buy trading Tutorials
+                  <v-icon right>{{ speedIcon1 }}</v-icon>
+                </v-btn>
+              </v-col>
 
-       <v-sheet class="tradeVolume mt-12">
-           <div class="text-center">
-               <v-card class="mx-auto volume"  width="50%" elevation="12">
-                   <v-container>
-                       <v-row justify="start">
-                           <v-card-text class="body-1 mt-12">Trading Volume</v-card-text>
-                           <v-container>
-                               <p class="display-1 pink--text text--darken-4 font-weight-bold funds"  style="text-align: center !important;">$00,000</p>
-                           </v-container>
-                       </v-row>
-                   </v-container>
-               </v-card>
+              <v-col cols="12" md="6" sm="12">
+                <v-btn router to="/user" large dark color="purple darken-4" class="ml-2 hidden-md-and-down">
+                  <v-icon left>{{ findIcon }}</v-icon>Start Trading
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-col>
 
-               <v-container>
-                   <v-row>
-                        <v-col cols="12" md="4" sm="12">
-                            <span class="headline indigo--text text--darken-3">Performance</span>
-                            <p class="text-center caption">Pick among the best Traders and instantly convert their advice into live trades.</p>
+          <v-col cols="12" md="6" sm="12" id="tradeGif">
+              <v-container>
+                  <v-img src="@/assets/head.gif"></v-img>
+              </v-container>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
 
-                            <v-card class="mt-5 mx-auto elevation-3">
-                                <v-simple-table>
-                                    <template v-slot:default>
-                                        <thead>
-                                            <tr>
-                                                <th class="text-left">Trader</th>
-                                                <th class="text-left">Amount</th>
-                                                <th class="text-left">Investors</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr
-                                                v-for="(item, i) in items"
-                                                :key="i"
-                                            >
-                                                <td>{{ item.name }}</td>
-                                                <td>{{ item.amount }}</td>
-                                                <td>{{ item.investors }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </template>
-                                </v-simple-table>
-                            </v-card>
-                        </v-col>
-
-                        <v-col cols="12" md="4" sm="12">
-                            <span class="headline indigo--text text--darken-3">Top Traders</span>
-                            <p class="text-center caption">
-                                Combined top 5 traders' performance $429,181 (66258.3 pips).
-                            </p>
-
-                            <v-card class="mt-10 mx-auto elevation-3" min-height="286">
-                                <v-sparkline
-                                    :fill="fill"
-                                    :gradient="gradient"
-                                    :line-width="width"
-                                    height="200"
-                                    :padding="padding"
-                                    :smooth="radius || false"
-                                    :value="value"
-                                    auto-draw
-                                ></v-sparkline>
-                            </v-card>
-                        </v-col>
-
-                        <v-col cols="12" md="4" sm="12">
-                            <span class="headline indigo--text text--darken-3">Market Sentiment</span>
-                            <p class="text-center caption">Currency Pairs selected by ZuluTraders during the last 4 hours</p>
-
-                            <v-card elevation="0" class="mt-5 mx-auto elevation-3" style="background-color: transparent !important;">
-                                <v-row>
-                                    <v-col cols="12" md="6">
-                                        <v-card>
-                                            <span>EUR/USD</span>
-                                            <v-container>
-                                                <v-progress-linear
-                                                    :active="active"
-                                                    :background-opacity="opacity"
-                                                    :bottom="bottom"
-                                                    :height="height"
-                                                    :rounded="rounded"
-                                                    :value="progressValue"
-                                                    color="indigo"
-                                                ></v-progress-linear>
-
-                                                <v-spacer></v-spacer>
-                                            </v-container>
-                                            <v-divider class="mx-4"></v-divider>
-                                            <v-card-actions>
-                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">15.4%</span></v-btn><br>
-
-                                                <v-spacer></v-spacer>
-
-                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">15.4%</span></v-btn>
-                                            </v-card-actions>
-                                        </v-card>
-                                    </v-col>
-
-                                    <v-col cols="12" md="6">
-                                        <v-card>
-                                            <span>EUR/USD</span>
-                                            <v-container>
-                                                <v-progress-linear
-                                                    :active="active"
-                                                    :background-opacity="opacity"
-                                                    :bottom="bottom"
-                                                    :height="height"
-                                                    :rounded="rounded"
-                                                    :value="progressValue"
-                                                    color="indigo"
-                                                ></v-progress-linear>
-
-                                                
-
-                                                <v-spacer></v-spacer>
-                                            </v-container>
-                                            <v-divider class="mx-4"></v-divider>
-                                            <v-card-actions>
-                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">0%</span></v-btn><br>
-
-
-                                                <v-spacer></v-spacer>
-
-                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">0%</span></v-btn>
-                                            </v-card-actions>
-                                        </v-card>
-                                    </v-col>
-
-                                    <v-col cols="12" md="6">
-                                        <v-card>
-                                            <span>EUR/USD</span>
-                                            <v-container>
-                                                <v-progress-linear
-                                                    :active="active"
-                                                    :background-opacity="opacity"
-                                                    :bottom="bottom"
-                                                    :height="height"
-                                                    :rounded="rounded"
-                                                    :value="progressValue"
-                                                    color="indigo"
-                                                ></v-progress-linear>
-
-                                                
-
-                                                <v-spacer></v-spacer>
-                                            </v-container>
-                                            <v-divider class="mx-4"></v-divider>
-                                            <v-card-actions>
-                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">0%</span></v-btn><br>
-
-
-                                                <v-spacer></v-spacer>
-
-                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">0%</span></v-btn>
-                                            </v-card-actions>
-                                        </v-card>
-                                    </v-col>
-
-                                    <v-col cols="12" md="6">
-                                        <v-card>
-                                            <span>EUR/USD</span>
-                                            <v-container>
-                                                <v-progress-linear
-                                                    :active="active"
-                                                    :background-opacity="opacity"
-                                                    :bottom="bottom"
-                                                    :height="height"
-                                                    :rounded="rounded"
-                                                    :value="progressValue"
-                                                    color="indigo"
-                                                ></v-progress-linear>
-
-                                                <v-spacer></v-spacer>
-                                            </v-container>
-                                            <v-divider class="mx-4"></v-divider>
-                                            <v-card-actions>
-                                                <v-btn text disabled class="buyBtn"><span class="buyBtn">buy</span><span class="buyBtnSub">0%</span></v-btn><br>
-
-                                                <v-spacer></v-spacer>
-
-                                                <v-btn text disabled class="sellBtn">sell<span class="sellBtnSub">0%</span></v-btn>
-                                            </v-card-actions>
-                                        </v-card>
-                                    </v-col>
-                                </v-row>
-                            </v-card>
-                        </v-col>
-                    </v-row>
-               </v-container>
-           </div>
-
-       </v-sheet>
-        
-        <v-sheet height="150"></v-sheet>
-        <v-sheet class="sheet2 mt-12">
-            <v-container>
-                <v-row>
-                    <v-col
-                    cols="12"
-                    md="6"
-                    sm="12"
-                    >
-                        <v-card flat class="mx-auto disc">
-                            <v-card-text class="mb-3 blue-grey--text body-1 mt-5">
-                                <h1>Learn How To Trade</h1><br>
-                                Effective training on how to trade. Professional analysis and support 24/7. 
-                                We've taught more than 150,000 traders. You can join us too! Major & Minor 
-                                Currencies. Free Demo Account. Stock & Forex Trading. MetaTrader 4 & 5. 
-                                For Beginners & Experts. 20 Years Of Experience.
-                            </v-card-text>
-                            <v-card-text style="text-align: center !important;" class="ml-n-5">
-                                <v-icon size="100" color="pink darken-2">{{ speedIcon2 }}</v-icon>
-                                <span class="purple--text font-weight-bold" style="font-size: 2rem !important;">221</span>
-                            </v-card-text>
-                        </v-card>
-
-                        <v-btn large ripple outlined color="indigo">Buy trading Tutorials<v-icon right>{{ speedIcon1 }}</v-icon></v-btn>
-                        <v-btn large dark color="indigo" class="ml-2"><v-icon left>{{ findIcon }}</v-icon>Start Trading</v-btn>
-                    </v-col>
-
-                    <v-col
-                    cols="12"
-                    md="6"
-                    sm="12"
-                    >
-                        <v-img
-                        src="@/assets/head.gif"
-                        ></v-img>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-sheet>
-
-       <!-- <v-sheet>
-           <v-row>
-               <v-card flat>
+    <v-sheet class="mt-8 mb-12" height="550">
+        <v-container>
+            <v-row justify="center">
+                <v-col cols="12" md="6" sm="12">
+                    <v-card class="mx-auto text-left" elevation="0">
+                        <v-card-text>
+                            <div class="display-1">
+                                <span class="font-weight-bold">Explore an ever-expanding variety of cryptocurrencies,</span> 
+                                <span class="font-weight-light">
+                                    and buy and sell the underlying asset on SpakTrade’s Cryptocurrency Trading Platform. 
+                                    Build your crypto-based portfolio and enjoy benefits not offered by most exchanges, 
+                                    such as near-immediate execution of market orders.
+                                </span>
+                            </div>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-btn router to="/signup" outlined color="purple" large class="ml-2 mt-2">Explore Cryptocurrencies</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" md="6" sm="12">
                     <v-container>
-                        <v-row justify="center">
-                            <v-col cols="12" md="4" sm="12">
-                                <v-card flat>
-                                    <v-container>
-                                        <v-row>
-                                                <v-col cols="12" md="4" sm="6">
-                                                    <v-img
-                                                        src="@/assets/phone.svg"
-                                                        contain
-                                                    ></v-img>
-                                                </v-col>
-                                                <v-col cols="12" md="6" sm="6">
-                                                    <h6 class="text-center font-weight-light pink--text text--darken-3" style="font-size: 1.1rem !important;"><span class="font-weight-bold">Spak</span> your mobile</h6>
-                                                    <v-card-text style="text-align: left !important;">
-                                                        Check out our Android, iPhone, iPad and desktop widget apps.
-                                                    </v-card-text>
-                                                    <v-card-actions class="text-center">
-                                                        <v-bt @click="downloadApp" dark color="pink darken-4" rounded style="text-transform: lowercase !important;">download now</v-bt>
-                                                    </v-card-actions>
-                                                </v-col>
-                                            </v-row>
-                                    </v-container>
-                                </v-card>
-                            </v-col>   
-
-                            <v-divider vertical></v-divider>
-
-                            <v-col cols="12" md="4" sm="12">
-                                <v-card flat>
-                                    <v-container>
-                                        <v-card-title class="font-weight-light grey--text">testimonials: </v-card-title>
-                                        <v-card-text class="body-1">
-                                            <i>
-                                                The social aspect with Traders makes for an educational experience and transparent service. 
-                                                The analytics are very useful
-                                            </i>
-                                            </v-card-text>
-                                            <p class="text-right"><b>Johnbon</b></p>
-                                    </v-container>
-                                </v-card>
-                            </v-col>
-                            
-                            <v-divider vertical></v-divider>
-
-                            <v-col cols="12" md="3" sm="12">
-                                <v-card flat>
-                                    <v-container>
-                                        <v-card-title class="font-weight-light grey--text">as seen in: </v-card-title>
-                                        <v-card-text class="body-1 text-center">
-                                            <v-avatar tile size="100">
-                                                <v-icon>{{ newsIcon }}</v-icon>
-                                            </v-avatar>
-                                            </v-card-text>
-                                    </v-container>
-                                </v-card>
-                            </v-col>
-                        </v-row>
+                        <v-img
+                         src="@/assets/bit.svg"
+                        ></v-img>
                     </v-container>
-                </v-card>
-           </v-row>
-       </v-sheet> -->
+                </v-col>
+            </v-row>
+        </v-container>
+    </v-sheet>
+    <v-sheet height="50"></v-sheet>
 
-        <v-sheet class="mt-5 account blue-grey lighten-5">
-          <v-container>
-              <h5 class="text-center title">Join us at Spaktrade</h5>
-              <v-card-text style="text-align: center !important;" class="body-1">
-                  Create a real money account
-                    Or practise with a Demo
-            </v-card-text>
-            <v-container>
-                <v-row>
-                    <!-- <v-col cols="12" md="6" sm="12">
-                        <v-card flat elevation="0" style="background-color: transparent !important;">
-                            <v-container>
-                                <v-row justify="center">
-                                    <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
+    <v-sheet class="mx-auto hidden-md-and-down" width="100%">
+        <v-slide-group 
+            show-arrows
+        >
+            <v-slide-item>
+                <v-container>
+                    <v-card class="mx-auto" elevation="5" height="300" max-width="400">
+                        <v-container>
+                            <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
+                            <v-card-text class="body-1 font-weight-light">
+                                I am satisfied with the services SpakTrade platform provides
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-row>
+                                    <v-col cols="12" md="4">
+                                        <v-avatar size="50">
                                             <v-img
-                                                src="@/assets/password.svg"
+                                                src="@/assets/avatar.svg" 
                                             ></v-img>
                                         </v-avatar>
                                     </v-col>
 
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
-                                    </v-col>
-                                     <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
-                                            <v-img
-                                                src="@/assets/password.svg"
-                                            ></v-img>
-                                        </v-avatar>
-                                    </v-col>
-
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
-                                    </v-col>
-
-                                     <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
-                                            <v-img
-                                                src="@/assets/password.svg"
-                                            ></v-img>
-                                        </v-avatar>
-                                    </v-col>
-
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
-                                    </v-col>
-
-                                     <v-col cols="12" md="4" sm="4">
-                                        <v-avatar tile size="50">
-                                            <v-img
-                                                src="@/assets/password.svg"
-                                            ></v-img>
-                                        </v-avatar>
-                                    </v-col>
-
-                                    <v-col cols="12" md="8" sm="8">
-                                        <v-card-text>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veniam 
-                                        </v-card-text>
+                                    <v-col cols="12" md="4">
+                                        <div class="blockquote">Alexis</div>
+                                        <div class="text-center">
+                                            <v-rating size="35" color="amber darken-2" v-model="rating"></v-rating>
+                                        </div>
                                     </v-col>
                                 </v-row>
-                            </v-container>
-                        </v-card>
-                    </v-col> -->
+                            </v-card-actions>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-slide-item>
 
-                    <v-col cols="12" md="6" sm="12">
-                        <v-card elevation="1">
-                            <v-container>
-                                <form action="">
-                                    <v-row>
-                                        <v-col cols="12" md="6" sm="6">
-                                            <v-text-field
-                                             label="First Name"
-                                             outlined
-                                             type="text"
-                                             required
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" md="6" sm="6">
-                                            <v-text-field
-                                             label="Last Name"
-                                             outlined
-                                             type="text"
-                                             required
-                                            ></v-text-field>
-                                        </v-col>
-                                         <v-col cols="12" md="12" sm="12">
-                                            <v-text-field
-                                             label="E-mail"
-                                             type="email"
-                                             outlined
-                                             required
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" md="12" sm="12">
-                                            <v-text-field
-                                             label="Password"
-                                             type="password"
-                                             outlined
-                                             required
-                                            ></v-text-field>
-                                        </v-col>
-                                    </v-row>
-                                    <v-row>
-                                        <v-col cols="12" md="3" sm="3">
-                                            <v-select
-                                                :items="items"
-                                                :rules="[v => !!v || 'Item is required']"
-                                                label="+234"
-                                                required
-                                                outlined
-                                            ></v-select>
-                                        </v-col>
-                                        <v-col cols="12" md="9" sm="9">
-                                            <v-text-field
-                                             outlined
-                                             label="phone number"
-                                             type="number"
-                                             required
-                                            ></v-text-field>
-                                        </v-col>
-                                    </v-row>
-                                    <v-row justify="center">
-                                        <v-col cols="12" md="6" sm="6">
-                                            <v-switch v-model="disabled" class="ma-2" label="Demo Account"></v-switch>
-                                        </v-col>
-                                        <v-col cols="12" md="6" sm="6">
-                                            <v-switch v-model="disabled" class="ma-2" label="Real Account"></v-switch>
-                                        </v-col>
+            <v-slide-item>
+                <v-container>
+                    <v-card class="mx-auto" height="300" elevation="5" max-width="400">
+                        <v-container>
+                            <v-card-title class="title font-weight-medium">Spaktrade is great</v-card-title>
+                            <v-card-text class="body-1 font-weight-light">
+                                Spaktrade  is a fantastic  trading  platform,  both from and  ease of use  and technical  perspective.
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-row>
+                                    <v-col cols="12" md="4">
+                                        <v-avatar size="50">
+                                            <v-img
+                                                src="@/assets/avatar.svg" 
+                                            ></v-img>
+                                        </v-avatar>
+                                    </v-col>
 
-                                        <v-container>
-                                            <div class="text-center">
-                                                <v-checkbox
-                                                v-model="checkbox"
-                                                :rules="[v => !!v || 'You must agree to continue!']"
-                                                label="I have read and I accept the Terms and Conditions and the Privacy Policy of SpakTrade."
-                                                required
-                                            ></v-checkbox>
-                                            </div>
-                                        </v-container>
-                                    </v-row>
-                                    <div class="text-center">
-                                        <v-container>
-                                            <v-btn dark rounded block class="text-center indigo">Create Account</v-btn>
-                                        </v-container>
-                                    </div>
-                                   <v-row justify="center">
-                                       <v-col cols="12" md="3" sm="4"><v-divider></v-divider></v-col>
-                                       <v-col cols="12" md="4" sm="4"><span class="ml-6 signUp">Or Sign up using </span></v-col>
-                                       <v-col cols="12" md="3" sm="4"><v-divider></v-divider></v-col>
-                                   </v-row>
-                                    <v-row justify="center">
-                                        <v-col cols="12" md="4" sm="6">
-                                        <v-btn rounded block dark class="facebook font-weight-bold" style="text-transform: lowercase !important; font-size: 1.2rem !important;">facebook</v-btn>
-                                        </v-col>
-                                        <v-col cols="12" md="4" sm="6">
-                                            <v-btn rounded outlined color="blue-grey darken-4" class="text--capitalize" block style="text-transform: none !important; font-size: 1.2rem !important;">
-                                                <span class="googleB font-weight-bold">G</span>
-                                                <span class="googleR font-weight-bold">o</span>
-                                                <span class="googleY font-weight-bold">o</span>
-                                                <span class="googleB font-weight-bold">g</span>
-                                                <span class="googleG font-weight-bold">l</span>
-                                                <span class="googleR font-weight-bold">e</span>
-                                            </v-btn>
-                                        </v-col>
-                                    </v-row>
-                                    <div class="text-center">
-                                        <p class="caption blue-grey--text">We will never post anything without your permission</p>
-                                    </div>
-                                </form>
-                            </v-container>
-                        </v-card>
-                    </v-col>
-                </v-row>
-            </v-container>
+                                    <v-col cols="12" md="4">
+                                        <div class="blockquote">Michael</div>
+                                        <div class="text-center">
+                                            <v-rating size="35" color="amber darken-2" v-model="rating"></v-rating>
+                                        </div>
+                                    </v-col>
+                                </v-row>
+                            </v-card-actions>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-slide-item>
+
+            <v-slide-item>
+                <v-container>
+                    <v-card class="mx-auto" height="300" elevation="5" max-width="400">
+                        <v-container>
+                            <v-card-title class="title font-weight-medium">It's been a pleasure trading with Spaktrade</v-card-title>
+                            <v-card-text class="body-1 font-weight-light">
+                                SpakTrade has been making my trading experience  enjoyable and secure
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-row>
+                                    <v-col cols="12" md="4">
+                                        <v-avatar size="50">
+                                            <v-img
+                                                src="@/assets/avatar.svg" 
+                                            ></v-img>
+                                        </v-avatar>
+                                    </v-col>
+
+                                    <v-col cols="12" md="4">
+                                        <div class="blockquote">Sofia</div>
+                                        <div class="text-center">
+                                            <v-rating size="35" color="amber darken-2" v-model="rating"></v-rating>
+                                        </div>
+                                    </v-col>
+                                </v-row>
+                            </v-card-actions>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-slide-item>
+
+            <v-slide-item>
+                <v-container>
+                    <v-card class="mx-auto" height="300" elevation="5" max-width="400">
+                        <v-container>
+                            <v-card-title class="title font-weight-medium">Easy and fun</v-card-title>
+                            <v-card-text class="body-1 font-weight-light">
+                                Great  platform for starting traders. Great selection and  transparent fee system
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-row>
+                                    <v-col cols="12" md="4">
+                                        <v-avatar size="50">
+                                            <v-img
+                                                src="@/assets/avatar.svg" 
+                                            ></v-img>
+                                        </v-avatar>
+                                    </v-col>
+
+                                    <v-col cols="12" md="4">
+                                        <div class="blockquote">Charles</div>
+                                        <div class="text-center">
+                                            <v-rating size="35" color="amber darken-2" v-model="rating"></v-rating>
+                                        </div>
+                                    </v-col>
+                                </v-row>
+                            </v-card-actions>
+                        </v-container>
+                    </v-card>
+                </v-container>
+            </v-slide-item>
+        </v-slide-group>
+    </v-sheet>
+
+    <v-sheet height="100"></v-sheet>
+    
+    <v-sheet class=" account white lighten-5">
+      <v-container>
+        <h5 class="text-center title" id="join">Join us at Spaktrade</h5>
+        <v-card-text style="text-align: center !important;" class="body-1">
+          Create an account to begin
+          <v-container>
+            <v-btn router to="/signup" dark large rounded color="purple darken-2">Start Trading</v-btn>
           </v-container>
-        </v-sheet>
-    </div>
+        </v-card-text>
+      </v-container>
+    </v-sheet>
+  </div>
 </template>
-
 
 <script>
 import { mdiSpeedometerMedium } from "@mdi/js";
 import { mdiFindReplace } from "@mdi/js";
 import { mdiSpeedometer } from "@mdi/js";
-import { mdiHome } from '@mdi/js';
-import { mdiNewspaper } from '@mdi/js';
-import { mdiChartDonutVariant } from '@mdi/js';
-import { mdiBankTransferOut } from '@mdi/js';
-import { mdiCart } from '@mdi/js';
-
+import { mdiHome } from "@mdi/js";
+import { mdiNewspaper } from "@mdi/js";
+import { mdiChartDonutVariant } from "@mdi/js";
+import { mdiBankTransferOut } from "@mdi/js";
+import { mdiCart } from "@mdi/js";
 
 //eslint-disable-next-line no-unused-vars
 const gradients = [
-    ['#222'],
-    ['#42b3f4'],
-    ['red', 'orange', 'yellow'],
-    ['purple', 'violet'],
-    ['#00c6ff', '#F0F', '#FF0'],
-    ['#f72047', '#ffd200', '#1feaea'],
-]
+  ["#222"],
+  ["#42b3f4"],
+  ["red", "orange", "yellow"],
+  ["purple", "violet"],
+  ["#00c6ff", "#F0F", "#FF0"],
+  ["#f72047", "#ffd200", "#1feaea"]
+];
 
 export default {
-    data() {
-        return {
-            speedIcon1: mdiSpeedometerMedium,
-            speedIcon2: mdiSpeedometer,
-            cartIcon: mdiCart,
-            findIcon: mdiFindReplace,
-            testIcon: mdiHome,
-            newsIcon: mdiNewspaper,
-            chartIcon: mdiChartDonutVariant,
-            transferIcon: mdiBankTransferOut,
-            
-            // Sparkline
-            fill: true,
-            gradient: gradients[3],
-            gradients,
-            padding: 8,
-            radius: 10,
-            value: [0, 4, 6 ,7, 8 ,9 ,10, 6, 9 , 0],
-            width: 2,
-
-            // progress
-            active: true,
-            height: 7,
-            progressValue: 0,
-
-
-            items: [
-                {
-                    name: "Fujinch",
-                    amount: "$4k",
-                    investors: 19
-                },
-                {
-                    name: "John smith",
-                    amount: "$100",
-                    investors: 2180
-                },
-                {
-                    name: "Alex00",
-                    amount: "$4k",
-                    investors: 120
-                },
-                {
-                    name: "PORTO",
-                    amount: "$21",
-                    investors: 69
-                },
-                {
-                    name: "Veronica",
-                    amount: "$67",
-                    investors: 1109
-                },
-            ]
-            
-        }
+    components: {
+        
     },
+  data() {
+    return {
+      speedIcon1: mdiSpeedometerMedium,
+      speedIcon2: mdiSpeedometer,
+      cartIcon: mdiCart,
+      findIcon: mdiFindReplace,
+      testIcon: mdiHome,
+      newsIcon: mdiNewspaper,
+      chartIcon: mdiChartDonutVariant,
+      transferIcon: mdiBankTransferOut,
 
-    methods: {
-        downloadApp() {
-            alert("Mobile not available at the moment.");
+      // Sparkline
+      fill: true,
+      gradient: gradients[3],
+      gradients,
+      padding: 8,
+      radius: 10,
+      value: [0, 4, 6, 7, 8, 9, 10, 6, 9, 0],
+      width: 2,
+
+      // progress
+      active: true,
+      height: 7,
+      progressValue: 0,
+      rating: 4,
+
+      items: [
+        {
+          name: "Fujinch",
+          amount: "$4k",
+          investors: 19
         },
+        {
+          name: "John smith",
+          amount: "$100",
+          investors: 2180
+        },
+        {
+          name: "Alex00",
+          amount: "$4k",
+          investors: 120
+        },
+        {
+          name: "PORTO",
+          amount: "$21",
+          investors: 69
+        },
+        {
+          name: "Veronica",
+          amount: "$67",
+          investors: 1109
+        }
+      ]
+    };
+  },
+
+  methods: {
+    downloadApp() {
+      alert("Mobile not available at the moment.");
     }
-}
+  }
+};
 </script>
 
 <style scoped>
-    .title {
-        font-size: 2.1rem !important;
-    }
+.title {
+  font-size: 2.1rem !important;
+}
 
-    .workText {
-        transform: translateY(-2rem) !important;
-    }
-    .display-1 {
-        font-size: 2.5rem !important;
-    }
-    .sheet2 {
-        background-color: #edeef8 !important;
-        border-radius: 0rem 0rem 0rem 11rem !important;
-    }
-    .subBuy {
-        font-size: 0.8rem !important;
-    }
-    .xrow {
-        padding: 0px !important;
-        margin: 0px !important;
-    }
-    .card3 {
-        border-radius: 20px !important;
-        background-color: transparent !important;
-    }
-    .tradeVolume {
-        background-color: #f8eafa;
-        margin-top: 7rem !important;
-    }
-    .volume {
-        transform: translateY(-4rem) !important;
-    }
-    .buyBtn {
-        font-size: 0.7rem !important;
-        color: #1A237E !important;
-    }
-    .sellBtn {
-        font-size: 0.7rem !important;
-    }
-    .buyBtnSub {
-        font-size: 0.5rem !important;
-        color: #1A237E !important;
-    }
-    .sellBtnSub {
-        font-size: 0.5rem !important;
-    }
-    .disc {
-        background-color: transparent !important;
-    }
-    .signUp {
-        transform: translateY(-1.5rem) !important;
-    }
-    .facebook {
-        background-color:  #3b5998 !important;
-    } 
-    .googleB {
-        color: #4885ed !important;
-    }
-    .googleG {
-        color: #3cba54 !important;
-    }
-    .googleR {
-        color: #db3236 !important;
-    }
-    .googleY {
-        color: #f4c20d !important;
-    }
-    @media screen and (max-width: 1024px) {
-        .funds {
-            font-size: 1.2rem !important;
-        }
-        .volume {
-            width: 200px !important;
-        }
-    }  
-    
+.workText {
+  transform: translateY(-2rem) !important;
+}
+.display-1 {
+  font-size: 2.5rem !important;
+}
+.sheet2 {
+  background-color: #edeef8 !important;
+  border-radius: 0rem 0rem 0rem 11rem !important;
+}
+.subBuy {
+  font-size: 0.8rem !important;
+}
+.xrow {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.card3 {
+  border-radius: 20px !important;
+  background-color: transparent !important;
+}
+.tradeVolume {
+  background-color: #f8eafa;
+  margin-top: 7rem !important;
+}
+.volume {
+  transform: translateY(-4rem) !important;
+}
+.buyBtn {
+  font-size: 0.7rem !important;
+  color: #1a237e !important;
+}
+.sellBtn {
+  font-size: 0.7rem !important;
+}
+.buyBtnSub {
+  font-size: 0.5rem !important;
+  color: #1a237e !important;
+}
+.sellBtnSub {
+  font-size: 0.5rem !important;
+}
+.disc {
+  background-color: transparent !important;
+}
+.signUp {
+  transform: translateY(-1.5rem) !important;
+}
+.facebook {
+  background-color: #3b5998 !important;
+}
+.googleB {
+  color: #4885ed !important;
+}
+.googleG {
+  color: #3cba54 !important;
+}
+.googleR {
+  color: #db3236 !important;
+}
+.googleY {
+  color: #f4c20d !important;
+}
+@media screen and (max-width: 1024px) {
+  .funds {
+    font-size: 1.2rem !important;
+  }
+  .volume {
+    width: 200px !important;
+  }
+  #join {
+      margin-top: 40px !important;
+  }
+  #tradeGif {
+      margin-top: -1rem !important;
+      margin-bottom: .9rem !important;
+  }
+  .sheet2 {
+    background-color: #edeef8 !important;
 
-
+    border-radius: 5rem 0rem 5rem 0rem !important;
+    }
+  #sheetGif {
+      height: 700px !important;
+  }
+}
 </style>

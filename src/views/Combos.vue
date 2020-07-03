@@ -72,7 +72,7 @@
                     </v-row>
 
                     <v-row justify="center" class="mt-5 mb-3">
-                        <v-btn rounded dark color="indigo darken-3">Select your combos!</v-btn>
+                        <v-btn router to="/signup" rounded dark color="indigo darken-3">Select your combos</v-btn>
                     </v-row>
                 </v-card>
             </v-sheet>
@@ -154,8 +154,6 @@
                                     </v-card-text>
                                 </v-col>
                             </v-row>
-
-                            <v-btn rounded color="indigo darken-3" dark class="mt-5 mb-3">Select your Combos</v-btn>
                         </v-card>
                     </v-row>
                 </v-container>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
