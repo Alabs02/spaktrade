@@ -6,12 +6,13 @@ import Contact from '../views/Contact.vue';
 import Traders from '../views/Traders.vue';
 import Tool from '../views/Trade.vue';
 import Combos from '../views/Combos.vue';
-import Tutorials from '../views/TradingTutorials.vue';
+// import Tutorials from '../views/TradingTutorials.vue';
 import Login from '../components/users/Login.vue';
 import Forgot from '../components/users/ForgotPassword.vue';
 import Signup from '../components/users/Signup.vue';
 import User from '../components/users/Settings.vue';
 import SubLogin from '../components/partials/SubLogin.vue';
+import Goto from '../components/partials/Goto.vue';
 import Welcome from '../components/partials/Welcome.vue';
 import Calendar from '../components/partials/Calendar.vue';
 import firebase from 'firebase';
@@ -27,16 +28,22 @@ Vue.use(VueRouter)
       
     ]
     },
-    {
-      path: '/tutorials',
-      name: 'Tutorials',
-      component: Tutorials,
-      meta: { requiresAuth: true }
-    },
+    // {
+    //   path: '/tutorials',
+    //   name: 'Tutorials',
+    //   component: Tutorials,
+    //   meta: { requiresAuth: true }
+    // },
     {
       path: '/tool',
       name: 'Tool',
       component: Tool,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/goto',
+      name: 'Goto',
+      component: Goto,
       meta: { requiresAuth: true }
     },
     {
@@ -47,7 +54,7 @@ Vue.use(VueRouter)
     {
       path: '/contact',
       name: 'Contact',
-      component: Contact
+      component: Contact,
     },
     {
       path: '/traders/all',
@@ -64,7 +71,8 @@ Vue.use(VueRouter)
     {
       path: '/combos',
       name: 'Combos',
-      component: Combos
+      component: Combos,
+      meta: { requiresAuth: true }
     },
     {
       path: '/login',

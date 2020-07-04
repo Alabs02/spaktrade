@@ -4,56 +4,22 @@
 
         <v-main>
             <v-sheet class="mt-5">
-                <v-card flat class="text-center">
-                    <h6 class="display-1 font-weight-medium">Your {{ }} Account</h6>
+                <v-card flat class="text-center mt-2">
+                    <h6 class="display-1 purple--text text--darken-4 font-weight-medium">Verify your email</h6>
                     <form action="">
                         <v-container>
-                            <v-row justify="center">
-                                <v-col cols="12" md="6" sm="12">
-                                    <v-card elevation="8" height="130" color="purple lighten-5">
-                                        <v-container>
-                                            <h5 class="headline font-weight-bold mt-4">Profit Sharing<span>*</span></h5>
-                                            <!-- <p class="body-1 font-weight-medium mt-4">Recommend for beginners</p> -->
-                                        </v-container>
-                                    </v-card>
-                                </v-col>
+                            <v-container>
+                                <v-img
+                                    src="@/assets/auth.svg"
+                                    contain
+                                    max-width="90%"
+                                    min-width="70"
+                                    max-height="250"
+                                    min-height="180"
 
-                                <v-col cols="12" md="6" sm="12">
-                                    <v-card height="130" elevation="8">
-                                        <v-container>
-                                            <h5 class="headline font-weight-bold mt-4">Classic</h5>
-                                            <!-- <p class="body-1 font-weight-medium mt-4">Recommend for Advanced Users</p> -->
-                                        </v-container>
-                                    </v-card>
-                                </v-col>
-                            </v-row>
-
-
-                            <v-row justify="center">
-                                <v-col cols="12" md="6" sm="6">
-                                    <p class="text-left">Base Currency</p>
-                                    <v-select
-                                    v-model="currency"
-                                    :items="currencies"
-                                    outlined
-                                    label="currency"
-                                    value="USD"
-                                    disabled
-                                    ></v-select>
-                                </v-col>
-
-                                <v-col cols="12" md="6" sm="6">
-                                    <p class="text-left">Balance</p>
-                                    <v-text-field
-                                    outlined
-                                    label="Amount"
-                                    value="0"
-                                    type="number"
-                                    disabled
-                                    >
-                                    </v-text-field>
-                                </v-col>
-                            </v-row>
+                                ></v-img>
+                            </v-container>
+                            <p class="blockquote">We just sent a verification link to your email, you need to verify before you proceed.</p>
 
                             <v-container class="mb-12">
                                 <!-- <form action="https://bitpay.com/checkout" method="post" >
@@ -104,7 +70,11 @@ export default {
     },
 
     methods: {
+        timedRefresh(timeOutPeriod) {
+            setTimeout("location.reload(true);", timeOutPeriod)
+        },
         verified() {
+            window.onload = this.timedRefresh(5000)
             this.isVerified = fb.auth.currentUser.emailVerified
             if (this.isVerified === true) 
                 this.$router.push('/welcome')

@@ -41,6 +41,7 @@
           </v-col>
         </v-row>
       </v-container>
+      <v-sheet class="hidden-lg-only" height="220"></v-sheet>
     </v-main>
     <footer-app />
   </div>
@@ -71,7 +72,8 @@ export default {
 
   methods: {
     payment() {
-      window.open("https://bitpay.com/checkout", "_blank");
+        window.open("https://bitpay.com/checkout", "_blank");
+        this.$router.push('/goto')
     }
   }
 };

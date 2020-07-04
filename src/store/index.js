@@ -12,6 +12,7 @@ export default new Vuex.Store({
     showLoginBtn: true,
     userProfile: {},
     userName: null,
+    userNumber: null,
   },
   mutations: {
     SETCURRENTUSER(state, payload) {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
     },
     USERNAME(state, val) {
       state.userName = val
+    },
+    GETUSERNUMB(state, val) {
+      state.userNumber = val
     }
   },
   actions: {
@@ -38,6 +42,9 @@ export default new Vuex.Store({
         console.error(err)
       })
     },
+    getUserNumb({ commit }, val) {
+      commit('GETUSERNUMB', val)
+    }
   },
   modules: {
   }

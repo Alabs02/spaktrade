@@ -95,7 +95,6 @@
 
             <v-overlay :value="performingRequest">
                 <v-progress-circular color="indigo lighten-4" indeterminate size="65"></v-progress-circular>
-                <v-btn color="pink" text>close</v-btn>
             </v-overlay>
         </v-main>
        <footer-app />
@@ -141,13 +140,8 @@ export default {
             fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password)
                 .then(user => {
                     this.$store.commit('SETCURRENTUSER', user.user)
-                    this.$store.dispatch('fetchUserProfile')
-                    this.showLoginForm = false
-                    this.$store.commit('SHOWLOGINBTN', this.showLoginForm)
-                    this.performingRequest = false
-                    this.currentUserEmail = user.user.email
-                    this.$store.commit('SETUSEREMAIL', this.currentUserEmail)
                     // alert(`${user.user.email} is logged in successfully!`)
+                    this.performingRequest = false
                     setTimeout(this.$router.replace("/user"), 4000)
                     // this.$router.replace("/user")
                 }).catch(error => {
@@ -158,7 +152,7 @@ export default {
                         this.performingRequest = false
                     } else {
                         console.log(errMsg)
-                        alert(`Message: ${errMsg}`)
+                        alert(`${errMsg}`)
                         this.performingRequest = false
                     }
                     console.log(`${error}`)
