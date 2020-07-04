@@ -3,10 +3,8 @@
         <v-app-bar
          app
          dark
-         shrink-on-scroll
-         prominent
          id="appbar"
-         class="bar"
+         color="purple darken-4"
         >
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -56,14 +54,6 @@
 
                     <v-list-item
                         link
-                        router to="/calendar"
-                    >
-                        <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
-                        <v-list-item-title >Calendar</v-list-item-title>
-                    </v-list-item>
-
-                    <v-list-item
-                        link
                         @click="myForum"
                     >
                         <v-list-item-icon><v-icon>{{ forumIcon }}</v-icon></v-list-item-icon>
@@ -72,12 +62,15 @@
                 </v-list>
             </v-menu>
             <v-btn v-show="showLoginBtn" router to="/login" color="white" rounded outlined class="ml-2">Login</v-btn>
+            <v-btn v-show="showLogoutBtn" @click="signOut" color="white" rounded outlined class="ml-2">Logout</v-btn>
         </v-app-bar>
         <v-navigation-drawer class="fix-nav" v-model="drawer" temporary>
             <v-list-item>
                 <v-list-item-avatar>
-                    <v-avatar>
-                        <img src="@/assets/spaktrade.png" width="30%" height="30%" alt="logo">
+                    <v-avatar tile size="40">
+                        <v-img
+                         src="@/assets/spakLogo.svg"
+                        ></v-img>
                     </v-avatar>
                 </v-list-item-avatar>
                 <v-list-item-content>
@@ -127,20 +120,11 @@
             
                 <v-list-item
                     link
-                    router to="/tutorials"
+                    router to="/user"
                     color="pink darken-4"
                 >
                     <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
                     <v-list-item-title >Trading Tutorials</v-list-item-title>
-                </v-list-item>
-
-                <v-list-item
-                    link
-                    router to="/calendar"
-                    color="pink darken-4"
-                >
-                    <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
-                    <v-list-item-title >Calendar</v-list-item-title>
                 </v-list-item>
 
                 <v-list-item
@@ -201,24 +185,27 @@ export default {
             tradersIcon: mdiTrademark,
             combosIcon: mdiShopping,
             contactIcon: mdiPhoneOutline,
+            user: null,
             barItems: [
                 { title: "Home", icon: mdiHomeCityOutline, to: "/" },
                 { title: "Traders", icon: mdiTrademark, to: "/traders/all" },
                 { title: "Combos", icon: mdiShopping, to: "/combos" },
                 { title: "Contact Us", icon: mdiPhoneOutline, to: "/contact" }
             ],
-            showLoginBtn: null,
+            showLoginBtn: true,
+            showLogoutBtn: false, 
 
         }
     },
 
     created() {
         this.displayBtn()
+        this.checkAuthState()
     },
 
     methods: {
         myForum() {
-            window.open("https://usman2.discussionchatroom.com/chatroom", "_blank");
+            window.open("https://google.com", "_blank");
         },
         userList() {
             alert('No Users at the momemnt.');
@@ -233,7 +220,29 @@ export default {
             else {
                 this.showLoginBtn = true
             }
-        }
+        },
+        checkAuthState() {
+            fb.auth.onAuthStateChanged(user => {
+                if(user) {
+                    this.showLoginBtn = false
+                    this.showLogoutBtn = true
+                } else {
+                    this.showLoginBtn = true
+                    this.showLogoutBtn = false
+                }
+            })
+        },
+
+        signOut() {
+            fb.auth.signOut()
+                .then(user => {
+                    alert('Logout successfully!')
+                    console.log(user)
+                    this.$router.replace('/');
+                }).catch(err => {
+                    console.error(err);
+                });
+        },
     },
     computed: {
         getUser() {
@@ -250,10 +259,10 @@ export default {
 <style scoped>
     
         /* //background: linear-gradient(to buttom right, #1A237E, #1A237E) !important; */
-    .bar {
+    /* .bar {
         /* background-image: linear-gradient(to bottom right, #F44336, #E65100, #FFEB3B); */
-        background-image: linear-gradient(to bottom left, #1A237E, #4A148C, #880E4F);
-    }
+        /* background-image: linear-gradient(to bottom left, #1A237E, #4A148C, #880E4F);
+    } */ 
     .fix-nav {
         height: 100% !important;
         width: 20% !important;

@@ -1,233 +1,192 @@
 <template>
     <div>
-        <app-bar-user />
-
+        <dash-bar />
         <v-main>
             <v-sheet>
                 <v-divider></v-divider>
                 <v-container>
-                    <v-row>
-                        <v-col cols="12" md="4" sm="12">
-                            <v-row>
-                                <v-avatar size="80" color="indigo darken-2">
-                                    <v-icon dark>{{ acctIcon }}</v-icon>
-                                </v-avatar>
-                                <span class="body-2 font-weight-medium">{{ userName }}</span><br>
-                                <p class="body-2">Phone Number: {{ userNumber }}</p>
-                                <p class="body-2 font-weight-bold">ID: {{ userId }}</p>
-                                <v-container>
-                                    <v-tooltip bottom>
-                                        <template v-slot:activator="{ on }">
-                                            <v-container>
-                                                <v-row justify="left">
-                                                    <v-col cols="12" md="5">
-                                                        <v-select
-                                                            v-on="on"
-                                                            :items="test"
-                                                            label="user"
-                                                            outlined
-                                                            shaped
-                                                            dense
-                                                            style="font-size: 1rem !important; transform: translateY(-1rem) !important;"
-                                                        ></v-select>
-                                                    </v-col>
-                                                </v-row>
-                                            </v-container>
-                                            
-                                        </template>
-                                        <span>{{ userEmail }} Account</span>
-                                    </v-tooltip>
-                                </v-container>
+                    <v-row justify="start">
+                        <v-container>
+                            <v-row justify="start" id="rowTop">
+                                <div class="title font-weight-bold pink--text text--darken-4  ml-4">Name: {{ userName }}</div>
+                                <span class="ml-5 body-1 mt-2 font-weight-bold pink--text text--darken-4">Phone: {{ userNumber }}</span>
+                                <span class="ml-5 body-1 mt-2 font-weight-bold pink--text text--darken-4">ID: {{ userId }}</span>
+                                <v-spacer></v-spacer>
+                                <v-btn router to="/tool" class="mr-4" rounded dark color="pink darken-4" id="tradeBtn">trade now</v-btn>
                             </v-row>
-                        </v-col>
-                        <v-divider vertical></v-divider>
-                        <v-col cols="12" md="7" sm="12">
-                            <v-row>
-                                <v-col cols="12" md="6" sm="12">
-                                    <h6 class="text-left ml-5 title mt-8">Funds: <span>$</span>{{ 550 }}</h6>
-                                </v-col>
-
-                                <v-col cols="12" md="6" sm="12">
-                                    <v-btn router to="/tool" rounded dark class="ml-4 mt-8 text-right indigo darken-3" style="float: right !important;">Trade</v-btn>
-                                </v-col>
-                            </v-row>
-                        </v-col>
+                        </v-container>
                     </v-row>
                 </v-container>
             </v-sheet>
             <v-divider></v-divider>
             <v-sheet>
-                <v-container>
-                    <v-tabs>
-                        <v-tab href="#tab1">Account</v-tab>
-                        <v-tab href="#tab2">History</v-tab>
-                    </v-tabs>
-                </v-container>
+                <v-row justify="center" no-gutters>
+                    <v-col cols="12" md="12" sm="12">
+                        <v-container>
+                            <v-text-field
+                            rounded
+                            solo
+                            label="Trade Dashboard"
+                            disabled
+                            color="purple"
+                            ></v-text-field>
+                        </v-container>
+                    </v-col>
+                </v-row>
             </v-sheet>
-            <v-divider></v-divider>
+            <v-divider class="mt-n6"></v-divider>
             <v-sheet>
                 <v-container>
-                    <v-card elevation="12">
-                        <v-container>
-                            <v-row>
-                                <v-icon class="mt-1 ml-2 grey--text text--darken-3" size="30">{{ newAcctIcon }}</v-icon>
-                                <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Personal Details</h6>
-                            </v-row>
-                        </v-container>
-                            
-                        <v-card-text>
-                            <v-container>
-                                This is the email address associated with your SpakTrade account. If you would like to change it, please send your request from this 
-                                email address to support@spaktrade.com, indicating the new email address.
-                            </v-container>
+                    <v-row justify="center">
+                        <v-col cols="12" md="4" sm="12">
+                            <v-card class="mx-auto" min-height="146" elevation="5">
+                                <v-container>
+                                    <v-row justify-sm="center" justify-md="center" no-gutters>
+                                        <v-col cols="12" md="5" sm="12" class="col1">
+                                            <v-avatar tile id="img" >
+                                                <v-img
+                                                 src="@/assets/fund.svg"
+                                                ></v-img>
+                                            </v-avatar>
+                                        </v-col>
 
-                            <v-container>
-                                <v-text-field
-                                 outlined
-                                 dense
-                                 :value="userEmail"
-                                 disabled
-                                ></v-text-field>
-                            </v-container>
-                            <v-container>
-                                <!-- <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Full Name</h6>
-                                <v-card-text>
-                                    This must be your real full name (first name, middle name and last name).
-                                    <v-row>
-                                        <v-col cols="12" md="2" sm="12">
-                                            <v-select
-                                                :items="titles"
-                                                label="title"
-                                                outlined
-                                            ></v-select>
+                                        <v-col cols="12" md="7" sm="12" class="col1">
+                                            <p class="ml-8 headline font-weight-bold green--text amt">${{ amount }}.00</p>
+                                            <p class="text-center body-2 mt-n3">Account Balance</p>
                                         </v-col>
-                                        <v-col cols="12" md="3" sm="12">
-                                            <v-text-field
-                                             value="John"
-                                             outlined
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" md="3" sm="12">
-                                            <v-text-field
-                                             value="Bon"
-                                             outlined
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" md="3" sm="12">
-                                            <v-text-field
-                                             value="Spectar"
-                                             outlined
-                                            ></v-text-field>
-                                        </v-col>
-                                        
                                     </v-row>
-                                </v-card-text>
+                                    <v-row justify="center" no-gutters>
+                                        <span class="display-1 purple--text text--darken-2 font-weight-bold">Funds</span>
+                                    </v-row>
+                                </v-container>
+                            </v-card>
+                        </v-col>
 
-                                <v-row>
-                                    <v-col cols="12" md="6" sm="12">
-                                        <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Country of Residence</h6>
-                                        <v-card-text>
-                                            <span>Choose your country of residence.</span>
-                                            <v-select
-                                                :items="countries"
-                                                outlined
-                                                label="country"
-                                            ></v-select>
+                        <v-col cols="12" md="4" sm="12">
+                            <v-card class="mx-auto" min-height="146" elevation="5">
+                                <v-container>
+                                    <v-row no-gutters>
+                                        <v-col cols="12" md="5" sm="12" class="col1">
+                                            <v-avatar tile>
+                                                <v-img
+                                                 src="@/assets/money.svg"
+                                                ></v-img>
+                                            </v-avatar>
+                                        </v-col>
 
-                                        </v-card-text>
-                                    </v-col>
+                                        <v-col cols="12" md="7" sm="12" class="col1">
+                                            <p class="ml-8 headline font-weight-bold green--text amt">$0.00</p>
+                                            <p class="text-center body-2 mt-n3">Total Income</p>
+                                        </v-col>
+                                    </v-row>
+                                    <v-row justify="center" no-gutters>
+                                        <span class="display-1 purple--text text--darken-2 font-weight-bold">Gains</span>
+                                    </v-row>
+                                </v-container>
+                            </v-card>
+                        </v-col>
 
-                                    <v-col cols="12" md="6" sm="12" class="mt-n2">
-                                        <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Phone Number</h6>
-                                        <v-card-text>
-                                            <span>Enter your phone number without any leading zeros or prefixes.</span>
-                                            <v-row>
-                                                <v-col cols="12" md="3" sm="12">
-                                                    <v-select
-                                                        :items="countries"
-                                                        outlined
-                                                        label="country"
-                                                    ></v-select>
-                                                </v-col>
+                        <v-col cols="12" md="4" sm="12" class="col1">
+                            <v-card class="mx-auto" min-height="146" elevation="5">
+                                <v-container>
+                                    <v-row no-gutters>
+                                        <v-col cols="12" md="5" sm="12">
+                                            <v-avatar tile>
+                                                <v-img
+                                                 src="@/assets/information.svg"
+                                                ></v-img>
+                                            </v-avatar>
+                                        </v-col>
 
-                                                <v-col cols="12" md="6" sm="12">
-                                                    <v-text-field
-                                                    outlined
-                                                    type="number"
-                                                    label="Phone Number"
-                                                    ></v-text-field>
-                                                </v-col>
-                                            </v-row>
-                                        </v-card-text>
-                                    </v-col>
-                                </v-row> -->
-                                <h6 class="ml-2 body-2 mt-3 font-weight-medium grey--text text--darken-4">Receive Newsletters</h6>
-                                <v-card-text class="caption">
-                                    Allow SpakTrade to send you newsletters and other notifications. 
-                                    Your email will not be used for any kind of third party advertisements.
-                                </v-card-text>
-
-                                <v-checkbox
-                                    v-model="checkbox"
-                                    :error-messages="checkboxErrors"
-                                    label="Yes, I would like to receive newsletters"
-                                    required
-                                    checked
-                                    @change="$v.checkbox.$touch()"
-                                    @blur="$v.checkbox.$touch()"
-                                ></v-checkbox>
-                            </v-container>
-                            <v-container>
-                                <v- ref="card" class="mx-auto text-center">
-                                    <h6 class="body-1 font-weight-bold">Deposit $500 in to your e-wallet to start trading and get $50 bonus from SpakTrade</h6>
-                                    <v-card-text>
-                                        <v-container>
-                                            <v-btn dark large rounded color="pink darken-3">Desposit</v-btn>
-                                        </v-container>
-                                        <!-- <form action="https://bitpay.com/checkout">
-                                            <v-text-field
-                                            dense
-                                            shaped
-                                            outlined
-                                            label="Deposit"
-                                            value="checkout"
-                                            type="hidden"
-                                            name="action"
-                                            ></v-text-field>
-
-                                            <v-text-field
-                                            dense
-                                            shaped
-                                            outlined
-                                            type="hidden"
-                                            name="posData"
-                                            ></v-text-field>
-
-                                            <v-text-field
-                                            dense
-                                            shaped
-                                            outlined
-                                            type="hidden"
-                                            name="data"
-                                            value="[encrypted_button_data]"
-                                            ></v-text-field>
-                                            <v-card-actions>
-                                                <v-btn type="submit" name="submit">Deposit</v-btn>
-                                            </v-card-actions>
-                                        </form> -->
+                                        <v-col cols="12" md="7" sm="12">
+                                            <p class="title font-weight-bold green--text amt">Latest Bitcoin Dip</p>
+                                            <p class="text-center body-2 mt-n3"></p>
+                                        </v-col>
+                                    </v-row>
+                                    <v-card-text class="caption">
+                                        <span class="tex-cemter">
+                                            Bitcoin (BTC) has made a quick bounce from a dip to below $4,000 seen early on Friday
+                                        </span>
                                     </v-card-text>
-                                </v->
-                            </v-container>
-                        </v-card-text>
-                        <v-divider class="mx-4"></v-divider>
-                        <v-card-actions>
-                            <v-btn @click="save" dark rounded color="indigo darken-3">save settings</v-btn>
-                            <v-spacer></v-spacer>
-                            <v-btn @click="reset" text class="grey--text">Reset Changes</v-btn>
-                        </v-card-actions>
-                    </v-card>
+                                </v-container>
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="12" md="12" sm="12">
+                            <v-alert
+                                :icon="lockIcon"
+                                prominent
+                                text
+                                type="info"
+                                >
+                                    <span class="textSmall">Bitcoins, the security of transaction blockchains</span>
+                                    
+                                    <v-btn @click="soon" rounded outlined color="primary" class="ml-6">check it out</v-btn>
+                            </v-alert>
+                        </v-col>
+                    </v-row>
+                    <p class="text-center headline font-weight-medium grey--text text--darken-1">Download world class trading ebooks!</p>
+                    <v-row>
+                        <v-col cols="12" md="6" sm="12">
+                           <v-card flat elevation="0" id="card">
+                                <v-container>
+                                    <v-row v-for="n in 5" :key="n" class="mt-2 mb-4" no-gutters justify="center">
+                                        <v-avatar tile size="35">
+                                            <v-img
+                                                src="@/assets/doc.svg"
+                                            ></v-img>
+                                        </v-avatar>
+
+                                        <span class="body-1 ml-3 mt-2 font-weight-medium">Ebook 1</span>
+                                        <v-spacer></v-spacer>
+                                        <span><v-btn dark color="purple darken-4"><v-icon left>{{ downIcon}}</v-icon>download</v-btn></span>
+                                    </v-row>
+                                </v-container>
+                           </v-card>
+                        </v-col>
+
+                        <v-col cols="12" md="6" sm="12">
+                           <v-card flat elevation="0" id="card2">
+                                <v-container>
+                                    <v-row v-for="n in 5" :key="n" class="mt-2 mb-4" no-gutters justify="center">
+                                        <v-avatar tile size="35">
+                                            <v-img
+                                                src="@/assets/doc.svg"
+                                            ></v-img>
+                                        </v-avatar>
+
+                                        <span class="body-1 ml-3 mt-2 font-weight-medium">Document 1</span>
+                                        <v-spacer></v-spacer>
+                                        <span><v-btn dark  color="purple darken-4"><v-icon left>{{ downIcon}}</v-icon>download</v-btn></span>
+                                    </v-row>
+                                </v-container>
+                           </v-card>
+                        </v-col>
+                    </v-row>
                 </v-container>
             </v-sheet>
+            <v-sheet height="50"></v-sheet>
+            <v-snackbar
+                v-model="soonTuto"
+                top
+                light
+                color=""
+                :timeout="timeout"
+            >
+                <span class="body-1 font-weight-medium blue--text">Coming soon!</span>
+                
+                <template v-slot:action="{ attrs }">
+                    <v-btn
+                    color="pink darken-4"
+                    text
+                    v-bind="attrs"
+                    @click="soonTuto = false"
+                    >
+                        Close
+                    </v-btn>
+                </template>
+            </v-snackbar>
         </v-main>
         <footer-app />
     </div>
@@ -235,40 +194,20 @@
 
 
 <script>
-//const BitPay  = require('bitpay-node')
-import AppBarUser from '@/components/core/AppBarUser.vue';
-import Footer from '@/components/core/Footer.vue';
+import DashBar from '@/components/core/DashBar.vue';
+import FooterCard from '@/components/core/FooterCard.vue';
 import { mdiAccountCircleOutline } from "@mdi/js";
 import { mdiAccount } from "@mdi/js";
-// eslint-disable-next-line no-unused-vars
-import Stripe from 'stripe';
+import { mdiMagnify } from "@mdi/js";
+import { mdiShieldLockOutline } from "@mdi/js";
+import { mdiDownloadCircleOutline } from "@mdi/js";
 const fb = require('../../firebaseConfig')
 
-// let stripe = Stripe('pk_test_51GyzvrC1J6TO6Ly8xRkTx8XxsCakFhpoFvM3JUGgYaKloAQT8U38f0VIj14446Sku4YCgTOToCXdY1PRccnTYk0q00fwfwUW0d'),
-//     elements = stripe.elements(),
-//     card = undefined;
-
-// let style = {
-//   base: {
-//     border: '1px solid #D8D8D8',
-//     borderRadius: '4px',
-//     color: "#000",
-//   },
-
-//   invalid: {
-//     // All of the error styles go inside of here.
-//   }
-
-// };
 
 export default {
     components: {
-        'app-bar-user': AppBarUser,
-        'footer-app': Footer,
-    },
-    mounted: function() {
-        // card = elements.create('card');
-        // card.mount(this.$refs.card);
+        'dash-bar': DashBar,
+        'footer-app': FooterCard,
     },
 
     data() {
@@ -276,6 +215,9 @@ export default {
             // Icons
             acctIcon: mdiAccountCircleOutline,
             newAcctIcon: mdiAccount,
+            magIcon: mdiMagnify,
+            lockIcon: mdiShieldLockOutline,
+            downIcon: mdiDownloadCircleOutline,
 
             //Js code
             test: [
@@ -283,6 +225,7 @@ export default {
             ],
             titles: ['Mr.', 'Mrs.'],
             countries: ['Nigeria', 'South Africa'],
+            soonTuto: false,
 
             // Firebase
             checkbox: null,
@@ -291,6 +234,8 @@ export default {
             userEmail: null,
             userNumber: null,
             userId: null,
+            amount: 550,
+            timeout: 4000,
         }
     },
 
@@ -308,6 +253,7 @@ export default {
         otherUserDetails() {
             const obj = fb.auth.currentUser
             this.userName = obj.displayName
+            this.$store.commit('USERNAME', this.userName)
             this.userEmail = obj.email
             this.userId = obj.uid
             const dataObj = fb.usersCollection.doc(obj.uid.toString())
@@ -316,10 +262,14 @@ export default {
                     console.log(doc.data())
                     const userData = doc.data()
                     this.userNumber = userData.number
+                    this.$store.dispatch('getUserNumb', this.userNumber)
                 } else {
                     console.log('No such data')
                 }
             })
+        },
+        soon() {
+            this.soonTuto = true;
         },
         save() {
             alert("Details successfully saved!");
@@ -327,38 +277,7 @@ export default {
         reset() {
             alert("Details successfully erased!");
         },
-        // pay() {
-        //     const client  = new BitPay.Client({ apiKey: ''  });
-        //     client.createInvoice({ price: 0.001, currency: 'BTC' }, function(err, invoice) {
-        //         if (err) {
-        //             console.error(err)
-        //         } else {
-        //             console.log(invoice)
-        //             this.invoice = invoice
-        //         }
-        //     });
-        //     client.getInvoice(this.invoice.id, (err, invoice) => {
-        //         if (err) {
-        //             console.error(err)
-        //         } else {
-        //             console.log(invoice)
-        //         }
-        //     })
-        // }
-
-
-        // purchase: function () {
-        //     let self = this;
-
-        //     stripe.createToken(card).then(function(result) {
-        //         if (result.error) {
-        //         self.hasCardErrors = true;
-        //         self.$forceUpdate(); // Forcing the DOM to update so the Stripe Element can update.
-        //         return;
-        //         }
-
-        //     });
-        // },
+        
     },
 
     
@@ -368,5 +287,36 @@ export default {
 <style scoped>
     #money {
         text-decoration-line: line-through !important;
+    }
+    #card {
+        border: 1px solid #1A237E;
+        background-color: transparent;
+        border-radius: 0rem 0rem 0rem 2.5rem;
+    }
+    #card2 {
+        border: 1px solid #1A237E;
+        background-color: transparent;
+        border-radius: 0rem 0rem 2.5rem 0rem;
+    }
+    @media screen and (max-width: 1024px) {
+        #tradeBtn {
+            margin: auto 30% !important;
+            margin-top: 8px !important;
+            /* transform: translateX(3rem) !important; */
+        }
+        #img {
+            text-align:center !important;
+            /* margin: auto 20% !important; */
+        }
+        .col1 {
+            text-align: center !important;
+        }
+        .amt {
+            margin-left: 0px !important;
+            font-size: 1.3rem !important;
+        }
+        .textSmall {
+            font-size: .8rem !important;
+        }
     }
 </style>

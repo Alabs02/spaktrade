@@ -3,10 +3,8 @@
         <v-app-bar
          app
          dark
-         shrink-on-scroll
-         prominent
          id="appbar"
-         class="bar"
+         color="purple darken-4"
         >
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -48,18 +46,10 @@
                 
                     <v-list-item
                         link
-                        router to="/tutorials"
+                        router to="/user"
                     >
                         <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
                         <v-list-item-title >Trading Tutorials</v-list-item-title>
-                    </v-list-item>
-
-                    <v-list-item
-                        link
-                        router to="/calendar"
-                    >
-                        <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
-                        <v-list-item-title >Calendar</v-list-item-title>
                     </v-list-item>
 
                     <v-list-item
@@ -72,14 +62,14 @@
                 </v-list>
 
             </v-menu>
-            <span class="caption mt-2 ml-1">{{ userEmail }}</span>
+            <span class="body-2 mt-1 ml-1">{{ userEmail }}</span>
             <v-menu
              transition="scale-y-transition"
              bottom
             >
                 <template v-slot:activator="{ on }">
                     <v-btn v-on="on" icon text class="ml-1">
-                        <v-icon size="30" dark>{{ acctIcon }}</v-icon>
+                        <v-icon size="30" color="amber">{{ dotIcon }}</v-icon>
                     </v-btn>
                 </template>
                 <v-list shaped>
@@ -99,9 +89,9 @@
         <v-navigation-drawer class="fix-nav" v-model="drawer" absolute temporary>
             <v-list-item>
                 <v-list-item-avatar>
-                    <v-avatar size="100">
+                    <v-avatar tile size="40">
                         <v-img
-                            src="@/assets/spaktrade.png"
+                            src="@/assets/spakLogo.svg"
                         ></v-img>
                     </v-avatar>
                 </v-list-item-avatar>
@@ -159,14 +149,6 @@
                     <v-list-item-title >Trading Tutorials</v-list-item-title>
                 </v-list-item>
 
-                <v-list-item
-                    link
-                    router to="/calendar"
-                    color="pink darken-4"
-                >
-                    <v-list-item-icon><v-icon>{{ calendarIcon }}</v-icon></v-list-item-icon>
-                    <v-list-item-title >Calendar</v-list-item-title>
-                </v-list-item>
 
                 <v-list-item
                     link
@@ -192,7 +174,7 @@
 
 
 <script>
-import firebase from 'firebase';
+// import firebase from 'firebase';
 import { mdiTrademark } from '@mdi/js';
 import { mdiShopping } from '@mdi/js';
 import { mdiFeatureSearchOutline } from '@mdi/js';
@@ -208,6 +190,7 @@ import { mdiTeach } from '@mdi/js';
 import { mdiAccountCircleOutline } from '@mdi/js';
 import { mdiPhoneOutline } from '@mdi/js';
 import { mdiOpenInNew } from '@mdi/js';
+import { mdiDotsVertical } from '@mdi/js';
 
 const fb = require('../../firebaseConfig')
 
@@ -230,6 +213,7 @@ export default {
             accountIcon: mdiAccountBox,
             listIcon: mdiFormatListBulletedTriangle,
             tutoIcon: mdiTeach,
+            dotIcon: mdiDotsVertical,
             calendarIcon: mdiCalendarOutline,
             forumIcon: mdiForumOutline,
             homeIcon: mdiHomeCityOutline,
@@ -269,15 +253,14 @@ export default {
 
     methods: {
         signOut() {
-            firebase.auth().signOut()
+            fb.auth.signOut()
                 .then(user => {
+                    alert('Logout successfully!')
+                    console.log(user)
                     this.$router.replace('/');
-                    this.currentEmail = user.email;
-                    console.log(`${this.currentEmail} logout successfully!`);
                 }).catch(err => {
                     console.error(err);
                 });
-            this.$store.dispatch("SIGNOUT", 'signout');
         },
 
         displayDetails() {
@@ -303,9 +286,9 @@ export default {
 
 
 <style scoped>
-    .bar {
+    /* .bar {
         background-image: linear-gradient(to bottom left, #1A237E, #4A148C, #880E4F);
-    }
+    } */
     .fix-nav {
         height: 100% !important;
         width: 20% !important;

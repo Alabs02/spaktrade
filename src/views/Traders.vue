@@ -69,10 +69,721 @@
                             <v-sheet>
                                 <v-container>
                                     <v-row justify="center">
-                                        <v-col cols="12" md="3" sm="12"
-                                         v-for="n in 20"
-                                         :key="n"
-                                        >
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col> 
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="12">
+                                            <v-card class="mx-auto">
+                                                <v-list-item>
+                                                    <v-list-item-avatar color="grey lighten-3">
+                                                        <v-icon color="grey darken-4">{{ accountIcon }}</v-icon>
+                                                    </v-list-item-avatar>
+                                                    <v-list-item-content>
+                                                        <v-list-item-title class="headline font-weight-medium">Jonhn02</v-list-item-title>
+                                                        <v-list-item-subtitle>Markets</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+                                                <v-sparkline
+                                                    :fill="fill"
+                                                    :gradient="gradient"
+                                                    :line-width="width"
+                                                    height="140"
+                                                    :padding="padding"
+                                                    :smooth="radius || false"
+                                                    :value="value"
+                                                    auto-draw
+                                                ></v-sparkline>
+                                                <v-divider></v-divider>
+                                                <v-row>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text class="caption">
+                                                            ROI: <span class="font-weight-medium green--text">+123.10%</span>
+                                                            <p>Drawdown (ALL): <span class="font-weight-medium pink--text text--darken-3">-3%</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                    <v-col cols="12" md="6" sm="6">
+                                                        <v-card-text>
+                                                            <v-icon>{{ acctIcon }}</v-icon><span class="ml-2">30</span>
+                                                            <p><v-icon>{{ acctIcon }}</v-icon><span class="ml-2">14.5k</span></p>
+                                                        </v-card-text>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-card-actions class="text-center">
+                                                    <v-container>
+                                                        <v-row justify="center">
+                                                            <v-btn rounded block dark color="pink darken-3" >Follow</v-btn>
+                                                        </v-row>
+                                                    </v-container>
+                                                    
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+
+                                        <v-col cols="12" md="3" sm="12">
                                             <v-card class="mx-auto">
                                                 <v-list-item>
                                                     <v-list-item-avatar color="grey lighten-3">
