@@ -10,7 +10,7 @@
                 </v-row>
                 <v-container>
                     <p class="text-center body-2 mt-4">
-                            At SpakTrade we speak English, German, French, Italian, Spanish,
+                            At SparkTrade we speak English, German, French, Italian, Spanish,
                             Portuguese, Russian, Arabic, Chinese, Japanese and Greek.
                         </p>
                         <v-container>
@@ -49,7 +49,7 @@
                                     <v-card-text class="body-1">Email support</v-card-text>
 
                                     <v-container>
-                                        <v-card-text class="title mt-n7 purple--text text--darken-4">support@spaktrade.com</v-card-text>
+                                        <v-card-text class="title mt-n7 purple--text text--darken-4">support@sparktrade.com</v-card-text>
                                     </v-container>
 
                                     <p class="caption grey--text">All Languages</p>

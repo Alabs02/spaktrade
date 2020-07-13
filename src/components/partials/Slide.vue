@@ -10,7 +10,7 @@
                             <v-container>
                                 <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
                                 <v-card-text class="body-1 font-weight-light">
-                                    I am satisfied with the services SpakTrade platform provides
+                                    I am satisfied with the services SparkTrade platform provides
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-row>
@@ -41,7 +41,7 @@
                             <v-container>
                                 <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
                                 <v-card-text class="body-1 font-weight-light">
-                                    I am satisfied with the services SpakTrade platform provides
+                                    I am satisfied with the services SparkTrade platform provides
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-row>
@@ -72,7 +72,7 @@
                             <v-container>
                                 <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
                                 <v-card-text class="body-1 font-weight-light">
-                                    I am satisfied with the services SpakTrade platform provides
+                                    I am satisfied with the services SparkTrade platform provides
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-row>
@@ -103,7 +103,7 @@
                             <v-container>
                                 <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
                                 <v-card-text class="body-1 font-weight-light">
-                                    I am satisfied with the services SpakTrade platform provides
+                                    I am satisfied with the services SparkTrade platform provides
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-row>

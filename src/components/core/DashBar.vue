@@ -8,7 +8,7 @@
         >
             <v-app-bar-nav-icon class="hidden-lg-only" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-toolbar-title>Spak Trade</v-toolbar-title>
+            <v-toolbar-title>Spark Trade</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -182,7 +182,7 @@
 
                 <v-list class="grow">
                     <v-list-item>
-                        <v-list-item-title class="font-weight-bold headline purple--text text--darken-1">{{ userName }}</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold headline purple--text text--darken-1">{{ userName.slice(0, 8) }}</v-list-item-title>
                     </v-list-item>
                     <v-divider class="mt-2"></v-divider>
 
@@ -363,14 +363,6 @@ export default {
                     this.logOutState = true
                 });
         },
-
-        // displayDetails() {
-        //     const obj = fb.auth.currentUser
-        //     this.userEmail = obj.email
-        //     this.userName = obj.displayName
-        //     this.userId = obj.uid
-        // },
-
         myForum() {
             window.open("https://sparktrade.discussion.community/  ", "_blank");
         },

@@ -34,7 +34,7 @@
                             <h6 class="body-1 mt-2 grey--text text--darken-1 font-weight-bold">Managing Trading Services</h6>
                             <v-container>
                                 <v-card-text class="mt-n4">
-                                    <p class="body-3 font-weight-light">by SpakTrade’s Certified Management Portfolio Team.</p>
+                                    <p class="body-3 font-weight-light">by SparkTrade’s Certified Management Portfolio Team.</p>
                                 </v-card-text>
                             </v-container>
                         </v-col>
@@ -115,7 +115,7 @@
                 <v-container>
                     <v-row justify="center">
                         <v-card flat class="text-center">
-                            <h6 class="display-1 font-weight-medium">How does Spaktrade select Traders for the Combos?</h6>
+                            <h6 class="display-1 font-weight-medium">How does Sparktrade select Traders for the Combos?</h6>
                             <v-container>
                                 <p class="body-1 text-center">The Traders that are included in Combos have among other qualities</p>
                             </v-container>

@@ -29,7 +29,7 @@ export default {
         },
         {
           src: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=sebastian-herrmann-NbtIDoFKGO8-unsplash.jpg",
-          text: 'Join the winning team SpakTrade', 
+          text: 'Join the winning team SparkTrade', 
           desc: 'Extra $50 after payment, you can cash out any time you want ',
           color: 'white--text'
         },

@@ -9,5 +9,5 @@ app.get(/.*/, function (req, res) {
 
 app.listen(port);
 
-console.log(`Spaktrade started at port ${port}`);
+console.log(`Sparktrade started at port ${port}`);
 console.log('Server Started Successfully');

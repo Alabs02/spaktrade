@@ -10,30 +10,9 @@
               <v-container>
                 <v-card-text
                   class="body-1"
-                >You need to deposit $500 to proceeed and start trading on the spaktrade platform</v-card-text>
+                >You need to deposit $500 to proceeed and start trading on the sparktrade platform</v-card-text>
                 <v-card-actions>
                   <v-row justify="center">
-                    <!-- <form action="https://bitpay.com/checkout" method="post">
-                      <input type="hidden" name="action" value="checkout" />
-                      <input type="hidden" name="posData" value />
-                      <input
-                        type="hidden"
-                        name="data"
-                        value="7TjkyyGzmOARMXPoMPDYOr3jmrniunvNS9lq36O09adsqC7+RhMpI0PKIUKeghs8K8txPuwjXOKOsyW/abpiEwpj9qEytCHjmnIRJbeRkFFr6K6OWXBpu31Rp/hlRlCdo1sGwqKgn6RuyJnbprR012dmBM2GTdu0wqoiBYu3LR6eDGi6CP/fRESN6x/swF+gx5SUGUdP2+ckIi4aNX68Sd1dgNNhKeMLFOmGgRd6rwt4OuGvu4y2ayl4pay/uZRgDtX7CcvkrRR3Sg83rdzL2/fHDwhXTUFoClLMWlmw7VYfOIOQtFkgQrdoD0P/xYxGWAli8O/YKWRWk9JnNCpkGzEfI3+9iqsjXr5Thbrc4d6Mgd9PyaIkDUbIiAlcsXuD"
-                      />
-                      <v-btn
-                        dark
-                        large
-                        @click.prevent="payment"
-                        color="pink darken-3"
-                        type="submit"
-                        name="submit"
-                        alt="BitPay, the easy way to pay with bitcoins."
-                      >
-                        <v-icon left>{{ payIcon }}</v-icon>Yes i am ready to deposit
-                      </v-btn>
-                    </form> -->
-
                     <form action="https://www.coinpayments.net/index.php" method="post">
                       <input type="hidden" name="cmd" value="_pay_simple">
                       <input type="hidden" name="reset" value="1">

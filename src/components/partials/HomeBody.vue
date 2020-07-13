@@ -12,7 +12,7 @@
               <p
                 class="subtitle-1 font-weight-bold"
                 style="text-align: center !important;"
-              >Join SpakTrade</p>
+              >Join SparkTrade</p>
               <v-container>
                 <v-card-text class="workText caption">
                   connect their account and
@@ -29,7 +29,7 @@
                 class="subtitle-1 font-weight-bold"
                 style="text-align: center !important;"
                 id="workTitle"
-              >SpakTrade ranks Traders</p>
+              >SparkTrade ranks Traders</p>
               <v-container>
                 <v-card-text class="workText caption">
                   based on their ROI and risk
@@ -133,7 +133,7 @@
                             <div class="display-1">
                                 <span class="font-weight-bold">Explore an ever-expanding variety of cryptocurrencies,</span> 
                                 <span class="font-weight-light">
-                                    and buy and sell the underlying asset on SpakTrade’s Cryptocurrency Trading Platform. 
+                                    and buy and sell the underlying asset on SparkTrade’s Cryptocurrency Trading Platform. 
                                     Build your crypto-based portfolio and enjoy benefits not offered by most exchanges, 
                                     such as near-immediate execution of market orders.
                                 </span>
@@ -166,7 +166,7 @@
                         <v-container>
                             <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
-                                I am satisfied with the services SpakTrade platform provides
+                                I am satisfied with the services SparkTrade platform provides
                             </v-card-text>
                             <v-card-actions>
                                 <v-row>
@@ -195,9 +195,9 @@
                 <v-container>
                     <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
-                            <v-card-title class="title font-weight-medium">Spaktrade is great</v-card-title>
+                            <v-card-title class="title font-weight-medium">Sparktrade is great</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
-                                Spaktrade  is a fantastic  trading  platform,  both from and  ease of use  and technical  perspective.
+                                Sparktrade  is a fantastic  trading  platform,  both from and  ease of use  and technical  perspective.
                             </v-card-text>
                             <v-card-actions>
                                 <v-row>
@@ -226,9 +226,9 @@
                 <v-container>
                     <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
-                            <v-card-title class="title font-weight-medium">It's been a pleasure trading with Spaktrade</v-card-title>
+                            <v-card-title class="title font-weight-medium">It's been a pleasure trading with Sparktrade</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
-                                SpakTrade has been making my trading experience  enjoyable and secure
+                                SparkTrade has been making my trading experience  enjoyable and secure
                             </v-card-text>
                             <v-card-actions>
                                 <v-row>
@@ -290,7 +290,7 @@
     
     <v-sheet class="account white lighten-5">
       <v-container>
-        <h5 class="text-center title" id="join">Join us at Spaktrade</h5>
+        <h5 class="text-center title" id="join">Join us at Sparktrade</h5>
         <v-card-text style="text-align: center !important;" class="body-1">
           Create an account to begin
           <v-container>

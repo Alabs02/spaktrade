@@ -188,8 +188,6 @@
                     </v-btn>
                 </template>
             </v-snackbar>
-
-            
         </v-main>
         <footer-app />
     </div>

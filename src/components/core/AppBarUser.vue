@@ -8,7 +8,7 @@
         >
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-toolbar-title>Spak Trade</v-toolbar-title>
+            <v-toolbar-title>Spark Trade</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -96,7 +96,7 @@
                     </v-avatar>
                 </v-list-item-avatar>
                 <v-list-item-content>
-                    <v-list-item-title class="title indigo--text">SpakTrade</v-list-item-title>
+                    <v-list-item-title class="title indigo--text">SparkTrade</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
             <v-divider class="mx-4"></v-divider>

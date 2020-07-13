@@ -22,12 +22,6 @@
                             <p class="text-center body-1 green--text text-darken-2">Page will refresh in <span class="font-weight-bold">20</span> seconds...</p>
 
                             <v-container class="mb-12">
-                                <!-- <form action="https://bitpay.com/checkout" method="post" >
-                                <input type="hidden" name="action" value="checkout" />
-                                <input type="hidden" name="posData" value="" />
-                                <input type="hidden" name="data" value="7TjkyyGzmOARMXPoMPDYOr3jmrniunvNS9lq36O09adsqC7+RhMpI0PKIUKeghs8K8txPuwjXOKOsyW/abpiEwpj9qEytCHjmnIRJbeRkFFr6K6OWXBpu31Rp/hlRlCdo1sGwqKgn6RuyJnbprR012dmBM2GTdu0wqoiBYu3LR6eDGi6CP/fRESN6x/swF+gx5SUGUdP2+ckIi4aNX68Sd1dgNNhKeMLFOmGgRd6rwt4OuGvu4y2ayl4pay/uZRgDtX7CcvkrRR3Sg83rdzL2/fHDwhXTUFoClLMWlmw7VYfOIOQtFkgQrdoD0P/xYxGWAli8O/YKWRWk9JnNCpkGzEfI3+9iqsjXr5Thbrc4d6Mgd9PyaIkDUbIiAlcsXuD" />
-                                <v-btn type="submit" name="submit" alt="BitPay, the easy way to pay with bitcoins." ><
-                                </form> -->
                                 <v-btn @click="verified" dark rounded color="indigo">proceed</v-btn>
                             </v-container>
 

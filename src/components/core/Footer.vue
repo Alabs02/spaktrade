@@ -24,7 +24,7 @@
         <br>
 Trading spot currencies involves substantial risk and there is always the potential for loss. Your trading results may vary. Because the risk factor is high in the foreign exchange market trading, only genuine "risk" funds should be used in such trading. If you do not have the extra capital that you can afford to lose, you should not trade in the foreign exchange market. No "safe" trading system has ever been devised, and no one can guarantee profits or freedom from loss. Past performance is not indicative of future results.
 
-Forex Brokers and SpakTrade are compensated for their services through the spread between the bid/ask prices or there may be a cost to initiate a trade through the bid/ask spread. Profit sharing accounts are subject to a monthly subscription fee and a monthly performance fee per selected trading system.
+Forex Brokers and SparkTrade are compensated for their services through the spread between the bid/ask prices or there may be a cost to initiate a trade through the bid/ask spread. Profit sharing accounts are subject to a monthly subscription fee and a monthly performance fee per selected trading system.
 
 Hypothetical performance results have many inherent limitations, some of which are described below. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown. In fact, there are frequently sharp differences between hypothetical performance results and the actual results subsequently achieved by any particular trading program.
 
@@ -64,7 +64,7 @@ One of the limitations of hypothetical performance results is that they are gene
       <v-divider></v-divider>
 
       <v-card-text class="white--text purple darken-4">
-        {{ new Date().getFullYear() }} — <span class="ml-2" id="footer-text"> All Rights reserved ®</span>  <span><strong class="overline">spak trade</strong></span>
+        {{ new Date().getFullYear() }} — <span class="ml-2" id="footer-text"> All Rights reserved ®</span>  <span><strong class="overline">spark trade</strong></span>
       </v-card-text>
     </v-card>
   </v-footer>
