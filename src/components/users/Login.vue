@@ -108,7 +108,7 @@
 <script>
 import AppBar from '@/components/core/AppBar.vue';
 import Footer from '@/components/core/Footer.vue';
-const fb = require('../../firebaseConfig')
+const fb = require.ensure('../../firebaseConfig')
 
 
 export default {

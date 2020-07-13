@@ -38,6 +38,7 @@
         </v-main>
         <v-snackbar
             v-model="verAuth"
+            top
             color="error"
         >
             <span class="body-1">Verify your email before you proceed!</span>
