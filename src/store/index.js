@@ -8,6 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currentUser: null,
+    payStatus: null,
     currentUserEmail: "",
     showLoginBtn: true,
     userProfile: {},
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     GETUSERNUMB(state, val) {
       state.userNumber = val
+    },
+    PAYMENT_STATUS(state, payload) {
+      state.payStatus = payload
     }
   },
   actions: {

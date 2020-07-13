@@ -66,7 +66,7 @@
               <form @submit.prevent="paymentWithPaystack" action="" id="paymentForm">
                   <v-row justify="center">
                       <v-col cols="12" md="5" sm="12">
-                        <v-text-field
+                        <!-- <v-text-field
                             v-model="paymentForm.email"
                             outlined
                             color="purple darken-4"
@@ -104,10 +104,10 @@
                             type="text"
                             placeholder="Deo"
                             required
-                        ></v-text-field>
+                        ></v-text-field> -->
 
                         <div class="text-center">
-                            <v-btn color="indigo large darken-4" dark>
+                            <!-- <v-btn color="indigo large darken-4" dark>
                                 <v-icon left>{{ payIcon }}</v-icon>
                             <pay-stack
                                 :amount="paymentForm.amount * 100"
@@ -119,7 +119,23 @@
                             >
                                 <span style="text-transform: capitalise !important;">Yes i am ready to deposit ${{ paymentForm.amount }}</span>
                             </pay-stack>
-                            </v-btn>
+                            </v-btn> -->
+
+                            <form action="https://www.coinpayments.net/index.php" method="post">
+                                <input type="hidden" name="cmd" value="_pay_simple">
+                                <input type="hidden" name="reset" value="1">
+                                <input type="hidden" name="merchant" value="1b63aab00670ceb763f9b8abca92d220">
+                                <input type="hidden" name="item_name" value="Trade">
+                                <input type="hidden" name="item_desc" value="Deposit">
+                                <input type="hidden" name="item_number" value="001">
+                                <input type="hidden" name="invoice" value="Deposited Successfully">
+                                <input type="hidden" name="currency" value="BTC">
+                                <input type="hidden" name="amountf" value="0.05400000">
+                                <input type="hidden" name="want_shipping" value="0">
+                                <input type="hidden" name="success_url" value="sparktradeus.netlify.app/goto">
+                                <input type="hidden" name="cancel_url" value="sparktradeus.netlify.app/welcome">
+                                <input type="image" src="https://www.coinpayments.net/images/pub/buynow-wide-blue.png" alt="Buy Now with CoinPayments.net">
+                            </form>
                         </div>
                       </v-col>
                   </v-row>
@@ -157,7 +173,7 @@ export default {
   components: {
     "app-bar": AppBar,
     "footer-app": Footer,
-    "pay-stack": Paystack // NEW LINE
+    // "pay-stack": Paystack // NEW LINE
   },
   data() {
     return {
@@ -200,6 +216,10 @@ export default {
     }
   },
 
+  created() {
+      this.commitStatus()
+  },
+
   methods: {
     paymentWithPaystack() {
         // window.open("https://bitpay.com/checkout", "_blank");
@@ -235,23 +255,31 @@ export default {
         })
     },
 
+    commitStatus() {
+        this.$store.commit('PAYMENT_STATUS', this.status);
+    },
+
     processPayment: () => {
-        this.color = "green"
-        this.text = "Deposited successfully!"
-        this.paySnackbar  = true
-        window.alert("Deposited successfully")
-        this.status = true
-        this.getPaymentDetails()
-        setTimeout(() => {
-            this.$router.push('/goto')
-        }, 5000); 
+        if (this.$store.state.payStatus == true) {
+            this.color = "green"
+            this.text = "Deposited successfully!"
+            this.paySnackbar  = true
+            window.alert("Deposited successfully")
+            this.status = true
+            this.getPaymentDetails()
+            setTimeout(() => {
+                this.$router.push('/goto')
+            }, 5000); 
+        } else {
+            this.color = "error"
+            this.text = "Deposit not successful!"
+            this.paySnackbar  = true 
+        }
     },
 
     close: () => {
         console.log("Deposit Page closed")
     }
-
-
   }
 };
 </script>

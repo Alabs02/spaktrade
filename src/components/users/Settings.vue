@@ -52,7 +52,7 @@
                                         </v-col>
 
                                         <v-col cols="12" md="7" sm="12" class="col1">
-                                            <p class="ml-8 headline font-weight-bold green--text amt">${{ fund+50 }}.00</p>
+                                            <p class="ml-8 headline font-weight-bold green--text amt">${{ 500+50 }}.00</p>
                                             <p class="text-center body-2 mt-n3">Account Balance</p>
                                         </v-col>
                                     </v-row>
@@ -248,6 +248,7 @@ export default {
     },
     created() {
         this.otherUserDetails()
+        this.getPaymentDetails()
     },
 
     methods: {

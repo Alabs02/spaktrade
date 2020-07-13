@@ -8,7 +8,7 @@
         >
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-toolbar-title>Spark Trade</v-toolbar-title>
+            <v-toolbar-title>SparkTrade</v-toolbar-title>
 
             <v-spacer></v-spacer>
 

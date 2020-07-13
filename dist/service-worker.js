@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.335af9ddf62db80f4bb2cb6c289d3e0d.js"
+  "/precache-manifest.c4fb13378a697a3806ee59e9e5a65cc0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "sparktrade"});

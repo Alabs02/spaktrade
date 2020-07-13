@@ -18,8 +18,8 @@
                                     min-height="180"
                                 ></v-img>
                             </v-container>
-                            <p class="blockquote">We just sent a verification link to your email, you need to verify before you proceed.</p>
-                            <p class="text-center body-1 green--text text-darken-2">Please refresh page before clicking the  <span class="font-weight-bold">proceed</span> button</p>
+                            <p class="blockquote">We just sent a verification link to your email.</p>
+                            <p class="text-center body-1 green--text text-darken-2">Click the button in other to <span class="font-weight-bold">proceed</span></p>
 
                             <v-container class="mb-12">
                                 <v-btn @click="verified" dark rounded color="indigo">proceed</v-btn>
@@ -75,19 +75,9 @@ export default {
     },
 
     methods: {
-        timedRefresh(timeOutPeriod) {
-            setTimeout("location.reload(true);", timeOutPeriod)
-        },
         verified() {
-            window.onload = this.timedRefresh(40000)
-             this.isVerified = fb.auth.currentUser.emailVerified
-            if (this.isVerified === true) 
-                this.$router.push('/welcome')
-                
-            else {
-                this.verAuth = true
-                // alert('Verify your email before you proceed!')
-            }
+            this.isVerified = fb.auth.currentUser.emailVerified
+            this.$router.push('/welcome')
         }
     }
 }

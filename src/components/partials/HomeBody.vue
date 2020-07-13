@@ -68,7 +68,7 @@
           <v-col cols="12" md="4" sm="12">
             <v-btn
               router
-              to="/dashboard"
+              to="/welcome"
               color="purple darken-3"
               large
               rounded
@@ -101,14 +101,14 @@
             </v-card>
             <v-row>
               <v-col cols="12" md="6" sm="12">
-                <v-btn router to="/tutorials" large ripple outlined color="purple darken-4">
-                  Buy trading Tutorials
-                  <v-icon right>{{ speedIcon1 }}</v-icon>
-                </v-btn>
+                  <!-- <v-btn router to="/tutorials" large ripple outlined color="purple darken-4">
+                    Buy trading Tutorials
+                    <v-icon right>{{ speedIcon1 }}</v-icon>
+                  </v-btn> -->
               </v-col>
 
               <v-col cols="12" md="6" sm="12">
-                <v-btn router to="/dashboard" large dark color="purple darken-4" class="ml-2 hidden-md-and-down">
+                <v-btn @click="security" large dark color="purple darken-4" class="ml-2 hidden-md-and-down">
                   <v-icon left>{{ findIcon }}</v-icon>Start Trading
                 </v-btn>
               </v-col>
@@ -164,7 +164,7 @@
                 <v-container>
                     <v-card id="userRemark" class="mx-auto" elevation="5" height="300" max-width="400">
                         <v-container>
-                            <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
+                            <v-card-title class="title font-weight-medium headComment">Very nice, keep it up</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
                                 I am satisfied with the services SparkTrade platform provides
                             </v-card-text>
@@ -173,7 +173,7 @@
                                     <v-col cols="12" md="4">
                                         <v-avatar size="50">
                                             <v-img
-                                                src="@/assets/avatar.svg" 
+                                                src="https://images.unsplash.com/photo-1530649298728-6dbb4c3f5bc8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=piotr-wilk-LcCvM4vZEyg-unsplash.jpg&w=640" 
                                             ></v-img>
                                         </v-avatar>
                                     </v-col>
@@ -195,7 +195,7 @@
                 <v-container>
                     <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
-                            <v-card-title class="title font-weight-medium">Sparktrade is great</v-card-title>
+                            <v-card-title class="title font-weight-medium headComment">Sparktrade is great</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
                                 Sparktrade  is a fantastic  trading  platform,  both from and  ease of use  and technical  perspective.
                             </v-card-text>
@@ -204,7 +204,7 @@
                                     <v-col cols="12" md="4">
                                         <v-avatar size="50">
                                             <v-img
-                                                src="@/assets/avatar.svg" 
+                                                src="https://images.unsplash.com/photo-1590086782974-e6e7b85e738e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=ludovic-migneault-B9YbNbaemMI-unsplash.jpg&w=640" 
                                             ></v-img>
                                         </v-avatar>
                                     </v-col>
@@ -226,7 +226,7 @@
                 <v-container>
                     <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
-                            <v-card-title class="title font-weight-medium">It's been a pleasure trading with Sparktrade</v-card-title>
+                            <v-card-title class="title font-weight-medium headComment">It's been a pleasure trading with Sparktrade</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
                                 SparkTrade has been making my trading experience  enjoyable and secure
                             </v-card-text>
@@ -235,7 +235,7 @@
                                     <v-col cols="12" md="4">
                                         <v-avatar size="50">
                                             <v-img
-                                                src="@/assets/avatar.svg" 
+                                                src="https://randomuser.me/api/portraits/women/75.jpg" 
                                             ></v-img>
                                         </v-avatar>
                                     </v-col>
@@ -257,7 +257,7 @@
                 <v-container>
                     <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
-                            <v-card-title class="title font-weight-medium">Easy and fun</v-card-title>
+                            <v-card-title class="title font-weight-medium headComment">Easy and fun</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
                                 Great  platform for starting traders. Great selection and  transparent fee system
                             </v-card-text>
@@ -266,7 +266,7 @@
                                     <v-col cols="12" md="4">
                                         <v-avatar size="50">
                                             <v-img
-                                                src="@/assets/avatar.svg" 
+                                                src="https://images.unsplash.com/photo-1531750026848-8ada78f641c2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=jackson-schaal-AR9mvykzSOA-unsplash.jpg&w=640" 
                                             ></v-img>
                                         </v-avatar>
                                     </v-col>
@@ -294,7 +294,7 @@
         <v-card-text style="text-align: center !important;" class="body-1">
           Create an account to begin
           <v-container>
-            <v-btn router to="/dashboard" dark large rounded color="purple darken-2">Start Trading</v-btn>
+            <v-btn @click="security" dark large rounded color="purple darken-2">Start Trading</v-btn>
           </v-container>
         </v-card-text>
       </v-container>
@@ -385,6 +385,15 @@ export default {
   methods: {
     downloadApp() {
       alert("Mobile not available at the moment.");
+    },
+
+    security() {
+      const newState = this.$store.state.payStatus
+      if (newState === true) {
+        this.$router.replace("/dashboard")
+      } else {
+        this.$router.replace("/welcome")
+      }
     }
   }
 };
@@ -468,12 +477,15 @@ export default {
   .volume {
     width: 200px !important;
   }
+  .headComment {
+    font-size: .9rem !important;
+  }
   #join {
       margin-top: 40px !important;
   }
   #userRemark {
-    height: 500px !important;
-    width: 250px !important;
+    height: 450px !important;
+    width: 200px !important;
   }
   #spacer {
     height: 400px !important;

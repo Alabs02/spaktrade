@@ -8,7 +8,7 @@
         >
             <v-app-bar-nav-icon class="hidden-lg-only" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-toolbar-title>Spark Trade</v-toolbar-title>
+            <v-toolbar-title>SparkTrade</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -103,7 +103,7 @@
                 >
                     <v-list-item class="px-2">
                         <v-list-item-avatar>
-                            <v-img src="https://randomuser.me/api/portraits/women/75.jpg"></v-img>
+                            <v-img src="@/assets/avatar.svg"></v-img>
                         </v-list-item-avatar>
                     </v-list-item>
 
