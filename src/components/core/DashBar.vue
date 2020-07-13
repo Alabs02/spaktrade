@@ -8,7 +8,7 @@
         >
             <v-app-bar-nav-icon class="hidden-lg-only" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="hidden-md-and-down">Spak Trade</v-toolbar-title>
+            <v-toolbar-title>Spak Trade</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -46,7 +46,7 @@
                 
                     <v-list-item
                         link
-                        router to="/user"
+                        router to="/dashboard"
                     >
                         <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
                         <v-list-item-title >Trading Tutorials</v-list-item-title>
@@ -228,6 +228,45 @@
                 </div>
             </template>
         </v-navigation-drawer>
+        <v-snackbar
+            v-model="logOutState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <span class="body-1 font-weight-medium purple--text text--darken-1">{{ desc }}</span>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="logOutState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
+
+        <v-snackbar
+            v-model="userListState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <span class="body-1 font-weight-medium purple--text text--darken-1">Users list not available at the moment</span>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="userListState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
     </div>
 </template>
 
@@ -280,6 +319,10 @@ export default {
 
             // Js code
             drawer: false,
+            logOutState: false,
+            userListState: false,
+            timeout: 4000,
+            desc: "",
             // userEmail: null,
             // userName: null,
             // userId: null,
@@ -308,11 +351,16 @@ export default {
         signOut() {
             fb.auth.signOut()
                 .then(user => {
-                    alert('Logout successfully!')
+                    this.desc = "Logged out successfully!"
+                    this.logOutState = true
+                    setTimeout(() => {
+                      this.$router.replace('/');  
+                    }, 4200);
                     console.log(user)
-                    this.$router.replace('/');
                 }).catch(err => {
                     console.error(err);
+                    this.desc = "An error occured, please try again!"
+                    this.logOutState = true
                 });
         },
 
@@ -324,10 +372,11 @@ export default {
         // },
 
         myForum() {
-            window.open("google.com", "_blank");
+            window.open("https://sparktrade.discussion.community/  ", "_blank");
         },
         userList() {
-            alert('No Users at the momemnt.');
+            this.userListState = true
+            console.log('No Users at the momemnt.');
         },
         responsive() {
             if (window.matchMedia('screen and (max-width: 1024px)').matches) {

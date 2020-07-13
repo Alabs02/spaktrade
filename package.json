@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "bitpay-node": "^0.0.4",
     "cashify": "^2.4.2",
+    "coinpayments": "^2.1.0",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "downloadjs": "^1.4.7",

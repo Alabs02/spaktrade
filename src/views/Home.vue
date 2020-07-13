@@ -5,7 +5,7 @@
       <carousel />
 
       <home-body />
-      <v-sheet height="250"></v-sheet>
+      <v-sheet height="50"></v-sheet>
 
     </v-main>
     <footer-app />

@@ -34,6 +34,25 @@
             </v-row>
         </v-main>
         <footer-app />
+        <v-snackbar
+            v-model="forgotPassState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <v-card-text  :class="color">{{ desc }}</v-card-text>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="forgotPassState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
     </div>
 </template>
 
@@ -52,6 +71,11 @@ export default {
         return {
             emailAddress: "",
             performingRequest: false,
+            forgotPassState: false,
+            timeout: 4000,
+            desc: "",
+            color: "purple--text text--darken-2 body-1 font-weight-medium",
+
         }
     },
 
@@ -60,12 +84,18 @@ export default {
             this.performingRequest = true
             fb.auth.sendPasswordResetEmail(this.emailAddress)
                 .then(() => {
-                    alert('Email sent successfully');
+                    console.log('Email sent successfully');
                     this.performingRequest = false
+                    this.desc = "Email sent successfully"
+                    this.forgotPassState = true
                 }).catch(error => {
-                    alert('An error occured, please try again...')
+                    console.log('An error occured, please try again...')
                     console.error(error)
                     this.performingRequest = false
+                    this.desc = "An error occured please check your internet connection..."
+                    this.color  = "error--text text--darken-2 body-1 font-weight-medium"
+                    this.forgotPassState = true
+
                 })
         }
     }

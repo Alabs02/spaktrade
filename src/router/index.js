@@ -90,13 +90,13 @@ Vue.use(VueRouter)
       component: Signup
     },
     {
-      path: '/account-details',
+      path: '/verify_email',
       name: 'SubLogin',
       component: SubLogin,
       meta: { requiresAuth: true }
     },
     {
-      path: '/user',
+      path: '/dashboard',
       name: 'User',
       component: User,
       meta: { requiresAuth: true }

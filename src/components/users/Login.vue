@@ -76,22 +76,25 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <!-- <v-snackbar
-             v-model="loginSuccess"
-             color="grey darken-3"
-             top
-             :timeout="timeout"
-            >{{ currentUserEmail }} has logged in successfully!</v-snackbar> -->
-            <!-- <v-snackbar
-            v-model="loginSnack"
-            :timeout="timeout"
-            top
-            transition="scale-center"
-            color="grey darken-3"
-            dark
+            <v-snackbar
+                v-model="loginState"
+                top
+                light
+                :timeout="timeout"
             >
-                {{ text }}
-            </v-snackbar> -->
+                <v-card-text  :class="color">{{ desc }}</v-card-text>
+                
+                <template v-slot:action="{ attrs }">
+                    <v-btn
+                    color="pink darken-4"
+                    text
+                    v-bind="attrs"
+                    @click="loginState = false"
+                    >
+                        Close
+                    </v-btn>
+                </template>
+            </v-snackbar>
 
             <v-overlay :value="performingRequest">
                 <v-progress-circular color="indigo lighten-4" indeterminate size="65"></v-progress-circular>
@@ -122,10 +125,11 @@ export default {
             },
             showLoginForm: true,
             performingRequest: false,
+            color: "purple--text text--darken-2 body-1 font-weight-medium",
             currentUserEmail: "",
-            loginSnack: false,
-            text: 'Logged in successfully!',
-            timeout: 3000,
+            loginState: false,
+            desc: "",
+            timeout: 4000,
 
         }
     },
@@ -142,22 +146,41 @@ export default {
                     this.$store.commit('SETCURRENTUSER', user.user)
                     // alert(`${user.user.email} is logged in successfully!`)
                     this.performingRequest = false
-                    setTimeout(this.$router.replace("/user"), 4000)
-                    // this.$router.replace("/user")
+                    this.desc = 'Logged in successfully!'
+                    this.loginState = true
+                    setTimeout(this.$router.replace("/dashboard"), 4100)
                 }).catch(error => {
                     let errCode = error.code;
                     let errMsg = error.message;
                     if(errCode == 'auth/wrong-password') {
-                        alert('Wrong Password')
+                        console.log('Wrong Password')
                         this.performingRequest = false
+                        this.color  = "error--text text--darken-2 body-1 font-weight-medium"
+                        this.desc = "Wrong password!"
+                        this.loginState = true
                     } else {
                         console.log(errMsg)
-                        alert(`${errMsg}`)
+                        // alert(`${errMsg}`)
                         this.performingRequest = false
+                        this.color = "error--text text--darken-2 body-1 font-weight-medium"
+                        this.desc = "An error happened, check your internet connection..."
+                        this.loginState = true
                     }
                     console.log(`${error}`)
                 });
         },
+
+        mounted() {
+            window.onpopstate = event => {
+                console.log(event)
+                if (
+                    window.localStorage.getItem("info") !== null &&
+                    this.$route.path == "/login"
+                ) {
+                    this.$router.push("/"); // redirect to home, for example
+                }
+            };
+        }
         
     }
 }
