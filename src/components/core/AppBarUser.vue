@@ -46,7 +46,7 @@
                 
                     <v-list-item
                         link
-                        router to="/user"
+                        router to="/dashboard"
                     >
                         <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
                         <v-list-item-title >Trading Tutorials</v-list-item-title>
@@ -142,7 +142,7 @@
             
                 <v-list-item
                     link
-                    router to="/tutorials"
+                    router to="/dashboard"
                     color="pink darken-4"
                 >
                     <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
@@ -169,16 +169,53 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
+        <v-snackbar
+            v-model="logOutState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <span class="body-1 font-weight-medium purple--text text--darken-1">{{ desc }}</span>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="logOutState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
+
+        <v-snackbar
+            v-model="userListState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <span class="body-1 font-weight-medium purple--text text--darken-1">Users list not available at the moment</span>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="userListState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
     </div>
 </template>
 
 
 <script>
-// import firebase from 'firebase';
 import { mdiTrademark } from '@mdi/js';
 import { mdiShopping } from '@mdi/js';
 import { mdiFeatureSearchOutline } from '@mdi/js';
-// import { mdiBitcoin } from '@mdi/js';
 import { mdiContactsOutline } from '@mdi/js';
 import { mdiMagnify } from '@mdi/js';
 import { mdiHomeCityOutline } from '@mdi/js';
@@ -194,14 +231,9 @@ import { mdiDotsVertical } from '@mdi/js';
 
 const fb = require('../../firebaseConfig')
 
-// import Login from '@/components/users/Login.vue';
-// import SignUp from '@/components/users/Signup.vue';
-
-
 export default {
     components: {
-        // 'login': Login,
-        // 'sign-up': SignUp,
+       
     },
 
     data() {
@@ -223,6 +255,10 @@ export default {
 
             // Js code
             drawer: false,
+            logOutState: false,
+            userListState: false,
+            timeout: 4000,
+            desc: "",
             userEmail: null,
             barItems: [
                 { title: "Home", icon: mdiHomeCityOutline, to: "/" },
@@ -255,10 +291,16 @@ export default {
         signOut() {
             fb.auth.signOut()
                 .then(user => {
-                    alert('Logout successfully!')
+                    this.desc = "Logged out successfully!"
+                    this.logOutState = true
+                    setTimeout(() => {
+                      this.$router.replace('/');  
+                    }, 4200);
                     console.log(user)
                     this.$router.replace('/');
                 }).catch(err => {
+                    this.desc = "An error occured, please try again!"
+                    this.logOutState = true
                     console.error(err);
                 });
         },
@@ -269,10 +311,11 @@ export default {
         },
 
         myForum() {
-            window.open("https://usman2.discussionchatroom.com/chatroom", "_blank");
+            window.open("https://sparktrade.discussion.community/", "_blank");
         },
         userList() {
-            alert('No Users at the momemnt.');
+            this.userListState = true
+            console.log('No Users at the momemnt.');
         },
     },
 

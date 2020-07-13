@@ -68,7 +68,7 @@
           <v-col cols="12" md="4" sm="12">
             <v-btn
               router
-              to="/login"
+              to="/dashboard"
               color="purple darken-3"
               large
               rounded
@@ -108,7 +108,7 @@
               </v-col>
 
               <v-col cols="12" md="6" sm="12">
-                <v-btn router to="/user" large dark color="purple darken-4" class="ml-2 hidden-md-and-down">
+                <v-btn router to="/dashboard" large dark color="purple darken-4" class="ml-2 hidden-md-and-down">
                   <v-icon left>{{ findIcon }}</v-icon>Start Trading
                 </v-btn>
               </v-col>
@@ -124,7 +124,7 @@
       </v-container>
     </v-sheet>
 
-    <v-sheet class="mt-8 mb-12" height="550">
+    <v-sheet class="mt-8 mb-12" min-height="550">
         <v-container>
             <v-row justify="center">
                 <v-col cols="12" md="6" sm="12">
@@ -140,7 +140,7 @@
                             </div>
                         </v-card-text>
                         <v-card-actions>
-                            <v-btn router to="/signup" outlined color="purple" large class="ml-2 mt-2">Explore Cryptocurrencies</v-btn>
+                            <v-btn router to="/dashboard" outlined color="purple" large class="ml-2 mt-2">Explore Cryptocurrencies</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-col>
@@ -156,13 +156,13 @@
     </v-sheet>
     <v-sheet height="50"></v-sheet>
 
-    <v-sheet class="mx-auto hidden-md-and-down" width="100%">
+    <v-sheet class="mx-auto" id="user" width="100%">
         <v-slide-group 
             show-arrows
         >
             <v-slide-item>
                 <v-container>
-                    <v-card class="mx-auto" elevation="5" height="300" max-width="400">
+                    <v-card id="userRemark" class="mx-auto" elevation="5" height="300" max-width="400">
                         <v-container>
                             <v-card-title class="title font-weight-medium">Very nice, keep it up</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
@@ -193,7 +193,7 @@
 
             <v-slide-item>
                 <v-container>
-                    <v-card class="mx-auto" height="300" elevation="5" max-width="400">
+                    <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
                             <v-card-title class="title font-weight-medium">Spaktrade is great</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
@@ -224,7 +224,7 @@
 
             <v-slide-item>
                 <v-container>
-                    <v-card class="mx-auto" height="300" elevation="5" max-width="400">
+                    <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
                             <v-card-title class="title font-weight-medium">It's been a pleasure trading with Spaktrade</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
@@ -255,7 +255,7 @@
 
             <v-slide-item>
                 <v-container>
-                    <v-card class="mx-auto" height="300" elevation="5" max-width="400">
+                    <v-card id="userRemark" class="mx-auto" height="300" elevation="5" max-width="400">
                         <v-container>
                             <v-card-title class="title font-weight-medium">Easy and fun</v-card-title>
                             <v-card-text class="body-1 font-weight-light">
@@ -286,15 +286,15 @@
         </v-slide-group>
     </v-sheet>
 
-    <v-sheet height="100"></v-sheet>
+    <v-sheet height="50"></v-sheet>
     
-    <v-sheet class=" account white lighten-5">
+    <v-sheet class="account white lighten-5">
       <v-container>
         <h5 class="text-center title" id="join">Join us at Spaktrade</h5>
         <v-card-text style="text-align: center !important;" class="body-1">
           Create an account to begin
           <v-container>
-            <v-btn router to="/signup" dark large rounded color="purple darken-2">Start Trading</v-btn>
+            <v-btn router to="/dashboard" dark large rounded color="purple darken-2">Start Trading</v-btn>
           </v-container>
         </v-card-text>
       </v-container>
@@ -462,11 +462,21 @@ export default {
   .funds {
     font-size: 1.2rem !important;
   }
+  .account {
+    transform: translateZ(-30rem) !important;
+  }
   .volume {
     width: 200px !important;
   }
   #join {
       margin-top: 40px !important;
+  }
+  #userRemark {
+    height: 500px !important;
+    width: 250px !important;
+  }
+  #spacer {
+    height: 400px !important;
   }
   #tradeGif {
       margin-top: -1rem !important;

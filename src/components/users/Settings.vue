@@ -9,10 +9,11 @@
                         <v-container>
                             <v-row justify="start" id="rowTop">
                                 <div class="title font-weight-bold pink--text text--darken-4  ml-4">Name: {{ userName }}</div>
-                                <span class="ml-5 body-1 mt-2 font-weight-bold pink--text text--darken-4">Phone: {{ userNumber }}</span>
-                                <span class="ml-5 body-1 mt-2 font-weight-bold pink--text text--darken-4">ID: {{ userId }}</span>
+                                <span class="ml-4 body-1 mt-1 font-weight-bold pink--text text--darken-4">Phone: {{ userNumber }}</span>
+                                <span class="ml-4 body-1 mt-1 font-weight-bold pink--text text--darken-4">ID: {{ userId }}</span>
+                                <span class="ml-2 mt-0" id="chip"><v-chip dark color="purple lighten-2">Traders copy trade</v-chip></span>
                                 <v-spacer></v-spacer>
-                                <v-btn router to="/tool" class="mr-4" rounded dark color="pink darken-4" id="tradeBtn">trade now</v-btn>
+                                <v-btn router to="/tool" class="mr-2" rounded dark color="pink darken-4" id="tradeBtn">Buy and Sell</v-btn>
                             </v-row>
                         </v-container>
                     </v-row>
@@ -127,6 +128,7 @@
                         </v-col>
                     </v-row>
                     <p class="text-center headline font-weight-medium grey--text text--darken-1">Download world class trading ebooks!</p>
+
                     <v-row>
                         <v-col cols="12" md="6" sm="12">
                            <v-card flat elevation="0" id="card">
@@ -140,7 +142,7 @@
 
                                         <span class="body-1 ml-3 mt-2 font-weight-medium">Ebook 1</span>
                                         <v-spacer></v-spacer>
-                                        <span><v-btn dark color="purple darken-4"><v-icon left>{{ downIcon}}</v-icon>download</v-btn></span>
+                                        <span><v-btn @click="downloadOne" dark color="purple darken-4"><v-icon left>{{ downIcon}}</v-icon>download</v-btn></span>
                                     </v-row>
                                 </v-container>
                            </v-card>
@@ -171,10 +173,9 @@
                 v-model="soonTuto"
                 top
                 light
-                color=""
                 :timeout="timeout"
             >
-                <span class="body-1 font-weight-medium blue--text">Coming soon!</span>
+                <span class="body-1 font-weight-medium purple--text text--darken-1">Coming soon!</span>
                 
                 <template v-slot:action="{ attrs }">
                     <v-btn
@@ -187,6 +188,8 @@
                     </v-btn>
                 </template>
             </v-snackbar>
+
+            
         </v-main>
         <footer-app />
     </div>
@@ -202,6 +205,7 @@ import { mdiMagnify } from "@mdi/js";
 import { mdiShieldLockOutline } from "@mdi/js";
 import { mdiDownloadCircleOutline } from "@mdi/js";
 const fb = require('../../firebaseConfig')
+const download = require('downloadjs')
 
 
 export default {
@@ -223,13 +227,11 @@ export default {
             test: [
                 'Real Account'
             ],
-            titles: ['Mr.', 'Mrs.'],
-            countries: ['Nigeria', 'South Africa'],
             soonTuto: false,
+            logOutState: false,
 
             // Firebase
             checkbox: null,
-            invoice: null,
             userName: null,
             userEmail: null,
             userNumber: null,
@@ -268,6 +270,9 @@ export default {
                 }
             })
         },
+        downloadOne() {
+            download('../../assets/docs/Trade Ebook.pdf')
+        },
         soon() {
             this.soonTuto = true;
         },
@@ -301,9 +306,13 @@ export default {
     @media screen and (max-width: 1024px) {
         #tradeBtn {
             margin: auto 30% !important;
-            margin-top: 8px !important;
+            margin-top: 10px !important;
             /* transform: translateX(3rem) !important; */
         }
+        #chip {
+            margin: auto 30% !important;
+            margin-top: 2px !important;
+        } 
         #img {
             text-align:center !important;
             /* margin: auto 20% !important; */

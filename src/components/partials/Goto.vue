@@ -6,9 +6,13 @@
             <v-container>
                 <v-row justify="center">
                     <v-card elevation="0" class="text-center">
-                        <p class="display-2">Proceed to dashboard</p>
+                        <p class="display-2 mt-3 indigo--text text--lighten-1">Proceed to dashboard</p>
                     </v-card>
-                    <v-btn router to="/user" large dark color="purple darken-3" class="mt-12">Goto Dashboard</v-btn>
+                    <v-container>
+                        <v-row justify="center">
+                            <v-btn router to="/dashboard" large dark color="purple darken-3" class="mt-12"><v-icon color="white" left>{{ dashIcon  }}</v-icon>Goto Dashboard</v-btn>
+                        </v-row>
+                    </v-container>
                 </v-row>
             </v-container>
         </v-main>
@@ -19,6 +23,7 @@
 <script>
 import AppBar from '@/components/core/AppBarUser'
 import Footer from '@/components/core/Footer'
+import { mdiApps } from "@mdi/js"
 
 export default {
     components: {
@@ -28,7 +33,7 @@ export default {
 
     data() {
         return {
-
+            dashIcon: mdiApps,
         }
     },
 

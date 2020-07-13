@@ -46,7 +46,7 @@
                 
                     <v-list-item
                         link
-                        router to="/tutorials"
+                        router to="/dashboard"
                     >
                         <v-list-item-icon><v-icon>{{ tutoIcon }}</v-icon></v-list-item-icon>
                         <v-list-item-title >Trading Tutorials</v-list-item-title>
@@ -146,7 +146,65 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
-        
+        <v-snackbar
+            v-model="logOutState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <span class="body-1 font-weight-medium purple--text text--darken-1">{{ desc }}</span>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="logOutState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
+
+        <v-snackbar
+            v-model="userListState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <span class="body-1 font-weight-medium purple--text text--darken-1">Users list not available at the moment</span>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="userListState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
+
+        <v-snackbar
+            v-model="calendarState"
+            top
+            light
+            :timeout="timeout"
+        >
+            <span class="body-1 font-weight-medium purple--text text--darken-1">Processing calender!</span>
+            
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink darken-4"
+                text
+                v-bind="attrs"
+                @click="calendarState = false"
+                >
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
     </div>
 </template>
 
@@ -173,7 +231,6 @@ export default {
 
     data() {
         return {
-            drawer: false,
             showLoginForm: true,
             searchIcon: mdiMagnify, 
             featureSIcon: mdiFeatureSearchOutline,
@@ -185,6 +242,14 @@ export default {
             tradersIcon: mdiTrademark,
             combosIcon: mdiShopping,
             contactIcon: mdiPhoneOutline,
+
+            // Js Code
+            drawer: false,
+            logOutState: false,
+            userListState: false,
+            calendarState: false,
+            timeout: 4000,
+            desc: "",
             user: null,
             barItems: [
                 { title: "Home", icon: mdiHomeCityOutline, to: "/" },
@@ -205,13 +270,15 @@ export default {
 
     methods: {
         myForum() {
-            window.open("https://google.com", "_blank");
+            window.open("https://sparktrade.discussion.community/", "_blank");
         },
         userList() {
-            alert('No Users at the momemnt.');
+            this.userListState = true
+            console.log('No Users at the momemnt.');
         },
         calendar() {
-            alert('Calendar Under developement!');
+            this.calendarState = true
+            console.log('Processing Calendar!');
         },
         displayBtn() {
             const user = fb.auth.currentUser
@@ -236,10 +303,16 @@ export default {
         signOut() {
             fb.auth.signOut()
                 .then(user => {
-                    alert('Logout successfully!')
+                    this.desc = "Logged out successfully!"
+                    this.logOutState = true
+                    setTimeout(() => {
+                      this.$router.replace('/');  
+                    }, 4200);
                     console.log(user)
                     this.$router.replace('/');
                 }).catch(err => {
+                    this.desc = "An error occured, please try again!"
+                    this.logOutState = true
                     console.error(err);
                 });
         },
