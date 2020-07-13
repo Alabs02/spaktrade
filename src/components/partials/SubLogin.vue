@@ -19,7 +19,7 @@
                                 ></v-img>
                             </v-container>
                             <p class="blockquote">We just sent a verification link to your email, you need to verify before you proceed.</p>
-                            <p class="text-center body-1 green--text text-darken-2">Page will refresh in <span class="font-weight-bold">20</span> seconds...</p>
+                            <p class="text-center body-1 green--text text-darken-2">Please refresh page before clicking the  <span class="font-weight-bold">proceed</span> button</p>
 
                             <v-container class="mb-12">
                                 <v-btn @click="verified" dark rounded color="indigo">proceed</v-btn>

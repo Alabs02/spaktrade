@@ -22,12 +22,12 @@ const currentUser = auth.currentUser
 // Firebase collections
 
 const usersCollection = db.collection('users')
-const transactCollection = db.collection('transactions')
+const paymentCollection = db.collection('paymentDetails')
 
 export {
     db,
     auth,
     currentUser,
     usersCollection,
-    transactCollection
+    paymentCollection
 }

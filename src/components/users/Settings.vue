@@ -8,9 +8,9 @@
                     <v-row justify="start">
                         <v-container>
                             <v-row justify="start" id="rowTop">
-                                <div class="title font-weight-bold pink--text text--darken-4  ml-4">Name: {{ userName }}</div>
+                                <div class="title font-weight-bold pink--text text--darken-4  ml-4">Name: {{ userName.slice(0, 8) }}</div>
                                 <span class="ml-4 body-1 mt-1 font-weight-bold pink--text text--darken-4">Phone: {{ userNumber }}</span>
-                                <span class="ml-4 body-1 mt-1 font-weight-bold pink--text text--darken-4">ID: {{ userId }}</span>
+                                <span class="ml-4 body-1 mt-1 font-weight-bold pink--text text--darken-4">ID: {{ userId.slice(0,5) }}</span>
                                 <span class="ml-2 mt-0" id="chip"><v-chip dark color="purple lighten-2">Traders copy trade</v-chip></span>
                                 <v-spacer></v-spacer>
                                 <v-btn router to="/tool" class="mr-2" rounded dark color="pink darken-4" id="tradeBtn">Buy and Sell</v-btn>
@@ -52,7 +52,7 @@
                                         </v-col>
 
                                         <v-col cols="12" md="7" sm="12" class="col1">
-                                            <p class="ml-8 headline font-weight-bold green--text amt">${{ amount }}.00</p>
+                                            <p class="ml-8 headline font-weight-bold green--text amt">${{ fund+50 }}.00</p>
                                             <p class="text-center body-2 mt-n3">Account Balance</p>
                                         </v-col>
                                     </v-row>
@@ -229,12 +229,13 @@ export default {
             logOutState: false,
 
             // Firebase
+            fund: null,
             checkbox: null,
             userName: null,
             userEmail: null,
             userNumber: null,
             userId: null,
-            amount: 550,
+            // amount: 550,
             timeout: 4000,
         }
     },
@@ -265,6 +266,18 @@ export default {
                     this.$store.dispatch('getUserNumb', this.userNumber)
                 } else {
                     console.log('No such data')
+                }
+            })
+        },
+        getPaymentDetails() {
+            const userobj = fb.auth.currentUser
+            const payObj = fb.paymentCollection.doc(userobj.uid.toString())
+            payObj.get().then(doc => {
+                if (doc.exists) {
+                    const payData = doc.data()
+                    this.fund = payData.amount
+                } else {
+                    console.log("No such payment data!")
                 }
             })
         },
