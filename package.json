@@ -9,7 +9,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bitpay-node": "^0.0.4",
     "cashify": "^2.4.2",
     "coinpayments": "^2.1.0",
